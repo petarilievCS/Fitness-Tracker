@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		E69F8C13286F598B0094371C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C12286F598B0094371C /* AppDelegate.swift */; };
 		E69F8C15286F598B0094371C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C14286F598B0094371C /* SceneDelegate.swift */; };
-		E69F8C17286F598B0094371C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C16286F598B0094371C /* ViewController.swift */; };
+		E69F8C17286F598B0094371C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C16286F598B0094371C /* WelcomeViewController.swift */; };
 		E69F8C1A286F598B0094371C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E69F8C18286F598B0094371C /* Main.storyboard */; };
 		E69F8C1D286F598C0094371C /* Fitness_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C1B286F598C0094371C /* Fitness_Tracker.xcdatamodeld */; };
 		E69F8C1F286F598D0094371C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E69F8C1E286F598D0094371C /* Assets.xcassets */; };
 		E69F8C22286F598D0094371C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E69F8C20286F598D0094371C /* LaunchScreen.storyboard */; };
+		E69F8C2D286F86530094371C /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C2C286F86530094371C /* GoalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E69F8C0F286F598B0094371C /* Fitness Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fitness Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E69F8C12286F598B0094371C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E69F8C14286F598B0094371C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E69F8C16286F598B0094371C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E69F8C16286F598B0094371C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E69F8C19286F598B0094371C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E69F8C1C286F598C0094371C /* Fitness_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fitness_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		E69F8C1E286F598D0094371C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E69F8C21286F598D0094371C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E69F8C23286F598D0094371C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E69F8C2C286F86530094371C /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,8 @@
 		E69F8C29286F59AE0094371C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E69F8C16286F598B0094371C /* ViewController.swift */,
+				E69F8C16286F598B0094371C /* WelcomeViewController.swift */,
+				E69F8C2C286F86530094371C /* GoalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,7 +168,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E69F8C17286F598B0094371C /* ViewController.swift in Sources */,
+				E69F8C17286F598B0094371C /* WelcomeViewController.swift in Sources */,
+				E69F8C2D286F86530094371C /* GoalViewController.swift in Sources */,
 				E69F8C13286F598B0094371C /* AppDelegate.swift in Sources */,
 				E69F8C15286F598B0094371C /* SceneDelegate.swift in Sources */,
 				E69F8C1D286F598C0094371C /* Fitness_Tracker.xcdatamodeld in Sources */,
