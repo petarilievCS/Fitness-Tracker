@@ -15,6 +15,9 @@
 		E69F8C1F286F598D0094371C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E69F8C1E286F598D0094371C /* Assets.xcassets */; };
 		E69F8C22286F598D0094371C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E69F8C20286F598D0094371C /* LaunchScreen.storyboard */; };
 		E69F8C2D286F86530094371C /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C2C286F86530094371C /* GoalViewController.swift */; };
+		E69F8C2F286F95860094371C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C2E286F95860094371C /* DashboardViewController.swift */; };
+		E69F8C31286FAE440094371C /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C30286FAE440094371C /* DiaryViewController.swift */; };
+		E69F8C33286FB0E70094371C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C32286FB0E70094371C /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		E69F8C21286F598D0094371C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E69F8C23286F598D0094371C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E69F8C2C286F86530094371C /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
+		E69F8C2E286F95860094371C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		E69F8C30286FAE440094371C /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		E69F8C32286FB0E70094371C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,9 @@
 			children = (
 				E69F8C16286F598B0094371C /* WelcomeViewController.swift */,
 				E69F8C2C286F86530094371C /* GoalViewController.swift */,
+				E69F8C2E286F95860094371C /* DashboardViewController.swift */,
+				E69F8C30286FAE440094371C /* DiaryViewController.swift */,
+				E69F8C32286FB0E70094371C /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,10 +178,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E69F8C17286F598B0094371C /* WelcomeViewController.swift in Sources */,
+				E69F8C2F286F95860094371C /* DashboardViewController.swift in Sources */,
 				E69F8C2D286F86530094371C /* GoalViewController.swift in Sources */,
+				E69F8C31286FAE440094371C /* DiaryViewController.swift in Sources */,
 				E69F8C13286F598B0094371C /* AppDelegate.swift in Sources */,
 				E69F8C15286F598B0094371C /* SceneDelegate.swift in Sources */,
 				E69F8C1D286F598C0094371C /* Fitness_Tracker.xcdatamodeld in Sources */,
+				E69F8C33286FB0E70094371C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

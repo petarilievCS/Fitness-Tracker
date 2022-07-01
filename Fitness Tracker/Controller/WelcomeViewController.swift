@@ -18,7 +18,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundView.backgroundColor = UIColor(named: blue)
+        // backgroundView.backgroundColor = UIColor(named: blue)
     
         // customize gender selection
         let genderFont = UIFont.boldSystemFont(ofSize: 24)
