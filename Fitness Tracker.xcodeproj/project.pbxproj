@@ -18,6 +18,7 @@
 		E69F8C2F286F95860094371C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C2E286F95860094371C /* DashboardViewController.swift */; };
 		E69F8C31286FAE440094371C /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C30286FAE440094371C /* DiaryViewController.swift */; };
 		E69F8C33286FB0E70094371C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C32286FB0E70094371C /* SettingsViewController.swift */; };
+		E69F8C35286FF32F0094371C /* FoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C34286FF32F0094371C /* FoodsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E69F8C2E286F95860094371C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		E69F8C30286FAE440094371C /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		E69F8C32286FB0E70094371C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E69F8C34286FF32F0094371C /* FoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				E69F8C2E286F95860094371C /* DashboardViewController.swift */,
 				E69F8C30286FAE440094371C /* DiaryViewController.swift */,
 				E69F8C32286FB0E70094371C /* SettingsViewController.swift */,
+				E69F8C34286FF32F0094371C /* FoodsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				E69F8C17286F598B0094371C /* WelcomeViewController.swift in Sources */,
 				E69F8C2F286F95860094371C /* DashboardViewController.swift in Sources */,
 				E69F8C2D286F86530094371C /* GoalViewController.swift in Sources */,
+				E69F8C35286FF32F0094371C /* FoodsViewController.swift in Sources */,
 				E69F8C31286FAE440094371C /* DiaryViewController.swift in Sources */,
 				E69F8C13286F598B0094371C /* AppDelegate.swift in Sources */,
 				E69F8C15286F598B0094371C /* SceneDelegate.swift in Sources */,
