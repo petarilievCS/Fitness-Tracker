@@ -48,7 +48,6 @@ class WelcomeViewController: UIViewController {
         
         // store age
         defaults.set(Int(ageLabel.text!), forKey: "Age")
-        print(defaults.integer(forKey: "Age"))
         
         // store height and weight
         defaults.set(heightTextField.text, forKey: "Height")
