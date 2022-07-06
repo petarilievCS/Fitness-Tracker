@@ -11,23 +11,52 @@ class WelcomeViewController: UIViewController {
     
     let blue = "signatureBlue"
     
+    let defaults = UserDefaults.standard
+    
     @IBOutlet var backgroundView: UIView!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var genderSelector: UISegmentedControl!
+    @IBOutlet weak var selectedGender: UISegmentedControl!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var heightTextField: UITextField!
+    @IBOutlet weak var weightTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // backgroundView.backgroundColor = UIColor(named: blue)
     
         // customize gender selection
         let genderFont = UIFont.boldSystemFont(ofSize: 24)
         genderSelector.setTitleTextAttributes([NSAttributedString.Key.font: genderFont], for: .normal)
         
         // customize button
-        // nextButton.titleLabel?.font = font
         nextButton.layer.cornerRadius = 10.0
+        
+        // dismiss keyboard when user taps anywhere
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
-
+    
+    @IBAction func ageChanged(_ sender: UIStepper) {
+        ageLabel.text = String(Int(sender.value))
+    }
+    
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        
+        // store sex
+        selectedGender.selectedSegmentIndex == 0 ? defaults.set("M", forKey: "Sex") :  defaults.set("F", forKey: "Sex")
+        
+        // store age
+        defaults.set(Int(ageLabel.text!), forKey: "Age")
+        print(defaults.integer(forKey: "Age"))
+        
+        // store height and weight
+        defaults.set(heightTextField.text, forKey: "Height")
+        defaults.set(weightTextField.text, forKey: "Weight")
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 

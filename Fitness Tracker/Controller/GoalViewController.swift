@@ -9,6 +9,8 @@ import UIKit
 
 class GoalViewController: UIViewController {
     
+    let defaults = UserDefaults.standard
+    
     let activities = ["Never", "1-3 days/week", "3-5 days/week", "6-7 days/week"]
     let goals = ["Cut", "Maintain", "Bulk"]
     
@@ -28,6 +30,9 @@ class GoalViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        
+    }
 }
 
 extension GoalViewController:  UIPickerViewDataSource, UIPickerViewDelegate {

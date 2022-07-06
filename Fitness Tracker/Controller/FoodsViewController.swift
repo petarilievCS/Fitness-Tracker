@@ -7,9 +7,13 @@
 
 import UIKit
 
-class FoodsViewController : UITableViewController {
+class FoodsViewController : UIViewController {
+    
+    @IBOutlet weak var addSelectedFoodsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addSelectedFoodsButton.layer.cornerRadius = 10.0
     }
 }
