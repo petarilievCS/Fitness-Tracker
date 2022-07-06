@@ -9,6 +9,10 @@ import UIKit
 
 class DashboardViewController : UIViewController {
     
+    @IBOutlet weak var calorieLabel: UILabel!
+    @IBOutlet weak var proteinLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    
     let defaults = UserDefaults.standard
     
     var gender : String?
@@ -19,8 +23,15 @@ class DashboardViewController : UIViewController {
     var goal : Int?
     
     override func viewDidLoad() {
-        print(calculateCalorieIntake())
-        print(Int(calculateProteinIntake()))
+        
+        let dailyCalories = Int(calculateCalorieIntake())
+        let dailyProtein = Int(calculateProteinIntake())
+        weight = defaults.integer(forKey: "Weight")
+        
+        // set labels according to user metrics
+        calorieLabel.text = "Calories: 0 / " + String(dailyCalories) + " kcal"
+        proteinLabel.text = "Protein: 0 / " + String(dailyProtein) + " g"
+        weightLabel.text = "Current weight: " + String(weight!) + " kg"
         
         navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
@@ -54,6 +65,7 @@ class DashboardViewController : UIViewController {
         activity = defaults.integer(forKey: "Activity")
         goal = defaults.integer(forKey: "Goal")
         
+        // adjust calorie intake for activity level
         if (activity == 0) {
             dailyCalories = userBMR * 1.2
         } else if (activity == 1) {
@@ -64,6 +76,7 @@ class DashboardViewController : UIViewController {
             dailyCalories = userBMR * 1.725
         }
         
+        // adjust calorie intake for goal 
         if (goal == 0) {
             dailyCalories *= 0.8
         } else if (goal == 2) {

@@ -362,6 +362,11 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="mKY-nj-Tfx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="calorieLabel" destination="rCb-UF-h5a" id="439-eV-mM8"/>
+                        <outlet property="proteinLabel" destination="37E-i5-UlM" id="pcW-H6-oXr"/>
+                        <outlet property="weightLabel" destination="mOY-h3-gRO" id="yZU-4T-UD6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mf-Gx-djz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
