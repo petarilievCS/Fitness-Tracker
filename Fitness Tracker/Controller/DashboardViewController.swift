@@ -20,6 +20,7 @@ class DashboardViewController : UIViewController {
     
     override func viewDidLoad() {
         print(calculateCalorieIntake())
+        print(Int(calculateProteinIntake()))
         
         navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
@@ -71,6 +72,12 @@ class DashboardViewController : UIViewController {
         
         return dailyCalories
         
+    }
+    
+    // calculate protien intake
+    func calculateProteinIntake() -> Double {
+        let weight = defaults.integer(forKey: "Weight")
+        return Double(weight) * 0.8 * 2.2
     }
     
 }
