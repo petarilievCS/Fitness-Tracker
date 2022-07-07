@@ -16,4 +16,8 @@ class FoodsViewController : UIViewController {
         
         addSelectedFoodsButton.layer.cornerRadius = 10.0
     }
+    
+    // saves food item to database 
+    @IBAction func addButtonPressed(_ sender: UIButton) {
+    }
 }
