@@ -433,6 +433,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="addSelectedFoodsButton" destination="Iiu-7y-uqz" id="ud0-Qu-kcf"/>
+                        <outlet property="foodTableView" destination="koz-ta-k9k" id="WRE-yb-LTf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOY-XP-Qwz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
