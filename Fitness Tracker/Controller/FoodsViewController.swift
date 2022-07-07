@@ -18,7 +18,7 @@ class FoodsViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        foodTableView.dataSource = self
         addSelectedFoodsButton.layer.cornerRadius = 10.0
         
     }
@@ -102,3 +102,16 @@ class FoodsViewController : UIViewController {
     }
 }
 
+extension FoodsViewController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return foodArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
+        cell.textLabel?.text = foodArray[indexPath.row].name
+        return cell
+    }
+
+}
