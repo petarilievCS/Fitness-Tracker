@@ -20,6 +20,7 @@ class FoodsViewController : UIViewController {
         super.viewDidLoad()
         loadFood()
         foodTableView.dataSource = self
+        foodTableView.delegate = self
         addSelectedFoodsButton.layer.cornerRadius = 10.0
         
         foodTableView.register(UINib(nibName: "FoodCell", bundle: nil), forCellReuseIdentifier: "FoodCell")
@@ -42,6 +43,7 @@ class FoodsViewController : UIViewController {
             newFood.servingSize = servingTextField.text!
             newFood.calories = Double(calorieTextField.text!)!
             newFood.protein = Double(proteinTextField.text!)!
+            newFood.selected = false
             self.foodArray.append(newFood)
             self.saveFood()
         }
@@ -108,6 +110,13 @@ extension FoodsViewController : UITableViewDataSource {
         cell.nameLabel.text = currentFood.name
         cell.servingLabel.text = currentFood.servingSize
         
+        // set selected
+        if (currentFood.selected) {
+            cell.checkmarkIcon.isHidden = false
+        } else {
+            cell.checkmarkIcon.isHidden = true
+        }
+        
         // create macro text
         var macroText = String(Int(currentFood.calories)) + " kcal"
         macroText += " - "
@@ -116,5 +125,13 @@ extension FoodsViewController : UITableViewDataSource {
         
         return cell
     }
+}
 
+extension FoodsViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        foodArray[indexPath.row].selected = !(foodArray[indexPath.row].selected)
+        foodTableView.reloadData()
+    }
+    
 }
