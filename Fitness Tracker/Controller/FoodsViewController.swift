@@ -18,21 +18,11 @@ class FoodsViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadFood()
         foodTableView.dataSource = self
         addSelectedFoodsButton.layer.cornerRadius = 10.0
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        loadFood()
-        
-        for food in foodArray {
-            print(food.name)
-            print(food.servingSize)
-            print(food.calories)
-            print(food.protein)
-        }
-        
+        foodTableView.register(UINib(nibName: "FoodCell", bundle: nil), forCellReuseIdentifier: "FoodCell")
     }
     
     //MARK: - Adding Food Methods
@@ -52,6 +42,7 @@ class FoodsViewController : UIViewController {
             newFood.servingSize = servingTextField.text!
             newFood.calories = Double(calorieTextField.text!)!
             newFood.protein = Double(proteinTextField.text!)!
+            self.foodArray.append(newFood)
             self.saveFood()
         }
         
@@ -88,7 +79,7 @@ class FoodsViewController : UIViewController {
         } catch {
             print("Error while saving context")
         }
-        // self.tableView.reloadData()
+        self.foodTableView.reloadData()
     }
     
     // load foods from database
@@ -98,7 +89,7 @@ class FoodsViewController : UIViewController {
         } catch {
            print("Error while fetching data")
         }
-        // tableView.reloadData()
+        foodTableView.reloadData()
     }
 }
 
@@ -109,8 +100,20 @@ extension FoodsViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath)
-        cell.textLabel?.text = foodArray[indexPath.row].name
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath) as! FoodCell
+        let currentFood = foodArray[indexPath.row]
+        
+        // customize cell
+        cell.nameLabel.text = currentFood.name
+        cell.servingLabel.text = currentFood.servingSize
+        
+        // create macro text
+        var macroText = String(Int(currentFood.calories)) + " kcal"
+        macroText += " - "
+        macroText += String(Int(currentFood.protein)) + " g"
+        cell.macroLabel.text = macroText
+        
         return cell
     }
 
