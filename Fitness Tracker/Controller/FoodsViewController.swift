@@ -114,6 +114,13 @@ extension FoodsViewController : UITableViewDataSource {
         cell.backgroundColor = UIColor(named: "veryDarkGray")
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15.0)
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
+        
+        // add checkmark when selected
+        if (currentFood.selected) {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
          
         return cell
     }
