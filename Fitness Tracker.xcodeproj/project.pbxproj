@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E61B9DFC287D14E300D97A30 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = E61B9DFB287D14E300D97A30 /* SwipeCellKit */; };
 		E69F8C13286F598B0094371C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C12286F598B0094371C /* AppDelegate.swift */; };
 		E69F8C15286F598B0094371C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C14286F598B0094371C /* SceneDelegate.swift */; };
 		E69F8C17286F598B0094371C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C16286F598B0094371C /* WelcomeViewController.swift */; };
@@ -19,8 +20,6 @@
 		E69F8C31286FAE440094371C /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C30286FAE440094371C /* DiaryViewController.swift */; };
 		E69F8C33286FB0E70094371C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C32286FB0E70094371C /* SettingsViewController.swift */; };
 		E69F8C35286FF32F0094371C /* FoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C34286FF32F0094371C /* FoodsViewController.swift */; };
-		E69F8C3C2877B65A0094371C /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C3A2877B65A0094371C /* FoodCell.swift */; };
-		E69F8C3D2877B65A0094371C /* FoodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E69F8C3B2877B65A0094371C /* FoodCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +37,6 @@
 		E69F8C30286FAE440094371C /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		E69F8C32286FB0E70094371C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E69F8C34286FF32F0094371C /* FoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsViewController.swift; sourceTree = "<group>"; };
-		E69F8C3A2877B65A0094371C /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
-		E69F8C3B2877B65A0094371C /* FoodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E61B9DFC287D14E300D97A30 /* SwipeCellKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,8 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				E69F8C18286F598B0094371C /* Main.storyboard */,
-				E69F8C3A2877B65A0094371C /* FoodCell.swift */,
-				E69F8C3B2877B65A0094371C /* FoodCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -131,6 +127,9 @@
 			dependencies = (
 			);
 			name = "Fitness Tracker";
+			packageProductDependencies = (
+				E61B9DFB287D14E300D97A30 /* SwipeCellKit */,
+			);
 			productName = "Fitness Tracker";
 			productReference = E69F8C0F286F598B0094371C /* Fitness Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -159,6 +158,9 @@
 				Base,
 			);
 			mainGroup = E69F8C06286F598B0094371C;
+			packageReferences = (
+				E61B9DFA287D14E300D97A30 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+			);
 			productRefGroup = E69F8C10286F598B0094371C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -174,7 +176,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E69F8C22286F598D0094371C /* LaunchScreen.storyboard in Resources */,
-				E69F8C3D2877B65A0094371C /* FoodCell.xib in Resources */,
 				E69F8C1F286F598D0094371C /* Assets.xcassets in Resources */,
 				E69F8C1A286F598B0094371C /* Main.storyboard in Resources */,
 			);
@@ -194,7 +195,6 @@
 				E69F8C31286FAE440094371C /* DiaryViewController.swift in Sources */,
 				E69F8C13286F598B0094371C /* AppDelegate.swift in Sources */,
 				E69F8C15286F598B0094371C /* SceneDelegate.swift in Sources */,
-				E69F8C3C2877B65A0094371C /* FoodCell.swift in Sources */,
 				E69F8C1D286F598C0094371C /* Fitness_Tracker.xcdatamodeld in Sources */,
 				E69F8C33286FB0E70094371C /* SettingsViewController.swift in Sources */,
 			);
@@ -418,6 +418,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E61B9DFA287D14E300D97A30 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E61B9DFB287D14E300D97A30 /* SwipeCellKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E61B9DFA287D14E300D97A30 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
+			productName = SwipeCellKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E69F8C1B286F598C0094371C /* Fitness_Tracker.xcdatamodeld */ = {

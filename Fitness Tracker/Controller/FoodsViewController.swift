@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SwipeCellKit
 
 class FoodsViewController : UIViewController {
     
@@ -22,8 +23,6 @@ class FoodsViewController : UIViewController {
         foodTableView.dataSource = self
         foodTableView.delegate = self
         addSelectedFoodsButton.layer.cornerRadius = 10.0
-        
-        foodTableView.register(UINib(nibName: "FoodCell", bundle: nil), forCellReuseIdentifier: "FoodCell")
     }
     
     //MARK: - Adding Food Methods
@@ -103,26 +102,16 @@ extension FoodsViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath) as! FoodCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath) as! SwipeTableViewCell
+        cell.delegate = self
         let currentFood = foodArray[indexPath.row]
         
         // customize cell
-        cell.nameLabel.text = currentFood.name
-        cell.servingLabel.text = currentFood.servingSize
-        
-        // set selected
-        if (currentFood.selected) {
-            cell.checkmarkIcon.isHidden = false
-        } else {
-            cell.checkmarkIcon.isHidden = true
-        }
-        
-        // create macro text
-        var macroText = String(Int(currentFood.calories)) + " kcal"
-        macroText += " - "
-        macroText += String(Int(currentFood.protein)) + " g"
-        cell.macroLabel.text = macroText
-        
+        cell.textLabel?.text = currentFood.name
+        let detailData = String(Int(currentFood.calories)) + " kcal, " + String(Int(currentFood.protein)) + " g"
+        cell.detailTextLabel?.text = detailData
+        cell.backgroundColor = UIColor(named: "veryDarkGray")
+         
         return cell
     }
 }
@@ -134,4 +123,31 @@ extension FoodsViewController : UITableViewDelegate {
         foodTableView.reloadData()
     }
     
+}
+
+extension FoodsViewController : SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        let removeAction = SwipeAction(style: .destructive, title: "Remove") { action, indexPath in
+            self.context.delete(self.foodArray[indexPath.row])
+            self.foodArray.remove(at: indexPath.row)
+            
+            do {
+                try self.context.save()
+            } catch {
+                print("Error whil saving context")
+            }
+            
+        }
+        
+        return [removeAction]
+    }
+    
+    // enable deleting cell by swiping all the way to the left
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        return options
+    }
 }
