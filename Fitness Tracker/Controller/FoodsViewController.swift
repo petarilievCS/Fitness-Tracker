@@ -71,6 +71,7 @@ class FoodsViewController : UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    
     //MARK: - Data Manipulation Methods
     
     // save new food to database
