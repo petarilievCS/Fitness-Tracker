@@ -13,6 +13,7 @@ class FoodsViewController : UIViewController {
     
     var foodArray = [Food]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let defaults = UserDefaults.standard
     
     @IBOutlet weak var addSelectedFoodsButton: UIButton!
     @IBOutlet weak var foodTableView: UITableView!
@@ -130,6 +131,18 @@ extension FoodsViewController : UITableViewDataSource {
 extension FoodsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let caloriesConsumed = defaults.integer(forKey: "caloriesConsumed")
+        let proteinConsumed = defaults.integer(forKey: "proteinConsumed")
+        
+        if foodArray[indexPath.row].selected {
+            defaults.set(caloriesConsumed - Int(foodArray[indexPath.row].calories), forKey: "caloriesConsumed")
+            defaults.set(proteinConsumed - Int(foodArray[indexPath.row].protein), forKey: "proteinConsumed")
+        } else {
+            defaults.set(caloriesConsumed + Int(foodArray[indexPath.row].calories), forKey: "caloriesConsumed")
+            defaults.set(proteinConsumed + Int(foodArray[indexPath.row].protein), forKey: "proteinConsumed")
+        }
+        
         foodArray[indexPath.row].selected = !(foodArray[indexPath.row].selected)
         foodTableView.reloadData()
     }

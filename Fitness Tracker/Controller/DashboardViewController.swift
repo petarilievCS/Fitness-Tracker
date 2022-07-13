@@ -21,17 +21,32 @@ class DashboardViewController : UIViewController {
     var weight : Int?
     var activity : Int?
     var goal : Int?
+    var calories : Int?
+    var protein : Int?
     
-    override func viewDidLoad() {
+    var caloriesConsumed = 0
+    var proteinConsumed = 0
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        let dailyCalories = Int(calculateCalorieIntake())
-        let dailyProtein = Int(calculateProteinIntake())
         weight = defaults.integer(forKey: "Weight")
+        calories = defaults.integer(forKey: "Calories")
+        protein = defaults.integer(forKey: "Protein")
+        
+        caloriesConsumed = defaults.integer(forKey: "caloriesConsumed")
+        proteinConsumed = defaults.integer(forKey: "proteinConsumed")
         
         // set labels according to user metrics
-        calorieLabel.text = "Calories: 0 / " + String(dailyCalories) + " kcal"
-        proteinLabel.text = "Protein: 0 / " + String(dailyProtein) + " g"
+        calorieLabel.text = "Calories: " + String(caloriesConsumed) + " / " + String(calories!) + " kcal"
+        proteinLabel.text = "Protein: " + String(proteinConsumed) + " / " + String(protein!) + " g"
         weightLabel.text = "Current weight: " + String(weight!) + " kg"
+    }
+    
+    override func viewDidLoad() {
+        let dailyCalories = Int(calculateCalorieIntake())
+        let dailyProtein = Int(calculateProteinIntake())
+        defaults.set(dailyCalories, forKey: "Calories")
+        defaults.set(dailyProtein, forKey: "Protein")
         
         navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
