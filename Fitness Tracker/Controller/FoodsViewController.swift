@@ -156,19 +156,68 @@ extension FoodsViewController : SwipeTableViewCellDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         
-        let removeAction = SwipeAction(style: .destructive, title: "Remove") { action, indexPath in
-            self.context.delete(self.foodArray[indexPath.row])
-            self.foodArray.remove(at: indexPath.row)
-            
-            do {
-                try self.context.save()
-            } catch {
-                print("Error whil saving context")
+        // delete action
+        if (orientation == .right) {
+            let removeAction = SwipeAction(style: .destructive, title: "Remove") { action, indexPath in
+                self.context.delete(self.foodArray[indexPath.row])
+                self.foodArray.remove(at: indexPath.row)
+                
+                do {
+                    try self.context.save()
+                } catch {
+                    print("Error whil saving context")
+                }
+                
             }
             
+            let editAction = SwipeAction(style: .default, title: "Edit") { action, indexPAth in
+                
+                var titleTextField = UITextField()
+                var calorieTextField = UITextField()
+                var proteinTextField = UITextField()
+                var servingTextField = UITextField()
+                let currentFood = self.foodArray[indexPath.row]
+                
+                let alert = UIAlertController(title: "Edit Food", message: "", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Edit", style: .default) { action in
+                    currentFood.name = titleTextField.text!
+                    currentFood.servingSize = servingTextField.text!
+                    currentFood.calories = Double(calorieTextField.text!)!
+                    currentFood.protein = Double(proteinTextField.text!)!
+                    // currentFood.selected = false
+                    self.foodArray.replaceSubrange(indexPath.row...indexPath.row, with: [currentFood])
+                    self.saveFood()
+                }
+                
+                alert.addTextField { alertTextField in
+                    alertTextField.placeholder = currentFood.name
+                    titleTextField = alertTextField
+                }
+                
+                alert.addTextField { alertTextField in
+                    alertTextField.placeholder = currentFood.servingSize
+                    servingTextField = alertTextField
+                }
+                
+                alert.addTextField { alertTextField in
+                    alertTextField.placeholder = String(Int(currentFood.calories))
+                    calorieTextField = alertTextField
+                }
+                
+                alert.addTextField { alertTextField in
+                    alertTextField.placeholder = String(Int(currentFood.protein))
+                    proteinTextField = alertTextField
+                }
+                
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            
+            return [removeAction, editAction]
         }
         
-        return [removeAction]
+        return nil
     }
     
     // enable deleting cell by swiping all the way to the left
