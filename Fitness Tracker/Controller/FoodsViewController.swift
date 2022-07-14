@@ -18,9 +18,12 @@ class FoodsViewController : UIViewController {
     @IBOutlet weak var addSelectedFoodsButton: UIButton!
     @IBOutlet weak var foodTableView: UITableView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        loadFood()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadFood()
         foodTableView.dataSource = self
         foodTableView.delegate = self
         addSelectedFoodsButton.layer.cornerRadius = 10.0
