@@ -11,6 +11,7 @@ import CoreData
 
 class DiaryViewController : UIViewController {
     
+    let defaults = UserDefaults.standard
     var selectedFoodArray = [Food]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -59,6 +60,27 @@ class DiaryViewController : UIViewController {
             }
         }
         diaryTableView.reloadData()
+    }
+    
+    // change the user's weight when the button is pressed
+    @IBAction func addWeightButtonPressed(_ sender: UIButton) {
+        
+        var weightTextField = UITextField()
+        
+        let alert = UIAlertController(title: "Add Your Weight", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add Weight", style: .default) { action in
+            let newWeight = Int(weightTextField.text!)
+            self.defaults.set(newWeight, forKey: "Weight")
+        }
+        
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Enter your weight..."
+            weightTextField = alertTextField
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+        
     }
 }
 
