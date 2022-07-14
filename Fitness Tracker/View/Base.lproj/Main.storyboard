@@ -530,6 +530,9 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="22"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="onX-Me-VTS" kind="presentation" id="nsX-4Y-gqs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LX5-CS-0NZ"/>
@@ -594,6 +597,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="hKT-Qv-8ri"/>
+        <segue reference="nsX-4Y-gqs"/>
         <segue reference="ocN-Vg-arL"/>
     </inferredMetricsTieBreakers>
     <resources>
