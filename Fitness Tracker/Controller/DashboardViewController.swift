@@ -12,6 +12,8 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var calorieLabel: UILabel!
     @IBOutlet weak var proteinLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var caloriesProgressView: UIProgressView!
+    @IBOutlet weak var proteinProgressView: UIProgressView!
     
     let defaults = UserDefaults.standard
     
@@ -40,6 +42,10 @@ class DashboardViewController : UIViewController {
         calorieLabel.text = "Calories: " + String(caloriesConsumed) + " / " + String(calories!) + " kcal"
         proteinLabel.text = "Protein: " + String(proteinConsumed) + " / " + String(protein!) + " g"
         weightLabel.text = "Current weight: " + String(weight!) + " kg"
+        
+        // set progress view
+        caloriesProgressView.progress = Float(caloriesConsumed) / Float(calories!)
+        proteinProgressView.progress = Float(proteinConsumed) / Float(protein!)
     }
     
     override func viewDidLoad() {
