@@ -45,6 +45,8 @@ class DashboardViewController : UIViewController {
         
         // set progress view
         caloriesProgressView.progress = Float(caloriesConsumed) / Float(calories!)
+        
+        
         proteinProgressView.progress = Float(proteinConsumed) / Float(protein!)
     }
     
@@ -53,6 +55,9 @@ class DashboardViewController : UIViewController {
         let dailyProtein = Int(calculateProteinIntake())
         defaults.set(dailyCalories, forKey: "Calories")
         defaults.set(dailyProtein, forKey: "Protein")
+        
+        caloriesProgressView.transform = caloriesProgressView.transform.scaledBy(x: 1, y: 10)
+        proteinProgressView.transform = proteinProgressView.transform.scaledBy(x: 1, y: 10)
         
         navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
