@@ -47,6 +47,7 @@ class FoodsViewController : UIViewController {
             newFood.calories = Double(calorieTextField.text!)!
             newFood.protein = Double(proteinTextField.text!)!
             newFood.selected = false
+            newFood.numServings = 1
             self.foodArray.append(newFood)
             self.saveFood()
         }
@@ -137,15 +138,17 @@ extension FoodsViewController : UITableViewDelegate {
         
         let caloriesConsumed = defaults.integer(forKey: "caloriesConsumed")
         let proteinConsumed = defaults.integer(forKey: "proteinConsumed")
+        let selectedFood = foodArray[indexPath.row]
         
         if foodArray[indexPath.row].selected {
-            defaults.set(caloriesConsumed - Int(foodArray[indexPath.row].calories), forKey: "caloriesConsumed")
-            defaults.set(proteinConsumed - Int(foodArray[indexPath.row].protein), forKey: "proteinConsumed")
+            defaults.set(caloriesConsumed - Int(selectedFood.calories) * Int(selectedFood.numServings), forKey: "caloriesConsumed")
+            defaults.set(proteinConsumed - Int(selectedFood.protein) * Int(selectedFood.numServings), forKey: "proteinConsumed")
         } else {
-            defaults.set(caloriesConsumed + Int(foodArray[indexPath.row].calories), forKey: "caloriesConsumed")
-            defaults.set(proteinConsumed + Int(foodArray[indexPath.row].protein), forKey: "proteinConsumed")
+            defaults.set(caloriesConsumed + Int(selectedFood.calories) * Int(selectedFood.numServings), forKey: "caloriesConsumed")
+            defaults.set(proteinConsumed + Int(selectedFood.protein) * Int(selectedFood.numServings), forKey: "proteinConsumed")
         }
         
+        foodArray[indexPath.row].numServings = 1
         foodArray[indexPath.row].selected = !(foodArray[indexPath.row].selected)
         foodTableView.reloadData()
     }
@@ -205,7 +208,7 @@ extension FoodsViewController : SwipeTableViewCellDelegate {
                 }
                 
                 alert.addTextField { alertTextField in
-                    alertTextField.placeholder = String(Int(currentFood.protein))
+                    alertTextField.placeholder = String(Int(currentFood.protein) )
                     proteinTextField = alertTextField
                 }
                 

@@ -26,7 +26,7 @@ class DiaryViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         diaryTableView.dataSource = self
-        
+        diaryTableView.delegate = self
         addMealButton.layer.cornerRadius = 10.0
         addWeightButton.layer.cornerRadius = 10.0
     }
@@ -84,6 +84,7 @@ class DiaryViewController : UIViewController {
     }
 }
 
+//MARK: - Table view data source methods
 extension DiaryViewController : UITableViewDataSource {
     
     func countCheckedFoods() -> Int {
@@ -111,3 +112,33 @@ extension DiaryViewController : UITableViewDataSource {
     }
 }
 
+//MARK: - Table view delegate methods
+extension DiaryViewController : UITableViewDelegate {
+    
+    // show an alert for changing the number of servings
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var numServingsTextField = UITextField()
+        
+        let alert = UIAlertController(title: "Change Number of Servings", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Change Servings", style: .default) { action in
+            let newNumServings = Int(numServingsTextField.text!)
+            let selectedFood = self.selectedFoodArray[indexPath.row]
+            
+            self.selectedFoodArray[indexPath.row].numServings = Int32(newNumServings!)
+            self.saveFood()
+            
+            // adjust dashboard according to new change
+            self.defaults.set(Int(selectedFood.numServings) * Int(selectedFood.calories), forKey: "caloriesConsumed")
+            self.defaults.set(Int(selectedFood.numServings) * Int(selectedFood.protein), forKey: "proteinConsumed")
+        }
+        
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "Enter number of servings..."
+            numServingsTextField = alertTextField
+        }
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+}
