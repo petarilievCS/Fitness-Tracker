@@ -100,14 +100,16 @@ extension DiaryViewController : UITableViewDataSource {
         let currentFood = selectedFoodArray[indexPath.row]
         
         // customize cell
-        cell.textLabel?.text = currentFood.name
-        let detailData = String(Int(currentFood.calories)) + " kcal, " + String(Int(currentFood.protein)) + " g"
+        cell.textLabel?.text = "x" + String(currentFood.numServings) + " " + currentFood.name!
+        
+        let numServings = Int(currentFood.numServings)
+        let detailData = String(Int(currentFood.calories) * numServings) + " kcal, " + String(Int(currentFood.protein) * numServings) + " g"
         cell.detailTextLabel?.text = detailData
         
         cell.backgroundColor = UIColor(named: "veryDarkGray")
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15.0)
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
-         
+        
         return cell
     }
 }
