@@ -100,6 +100,7 @@ class FoodsViewController : UIViewController {
     }
 }
 
+//MARK: - Table view data source methods
 extension FoodsViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -132,6 +133,7 @@ extension FoodsViewController : UITableViewDataSource {
     }
 }
 
+//MARK: - Table view delegate methods
 extension FoodsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -155,6 +157,7 @@ extension FoodsViewController : UITableViewDelegate {
     
 }
 
+//MARK: - Swipe cell delegate methods
 extension FoodsViewController : SwipeTableViewCellDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
