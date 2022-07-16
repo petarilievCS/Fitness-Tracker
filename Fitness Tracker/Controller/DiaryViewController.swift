@@ -126,12 +126,18 @@ extension DiaryViewController : UITableViewDelegate {
             let newNumServings = Int(numServingsTextField.text!)
             let selectedFood = self.selectedFoodArray[indexPath.row]
             
+            let oldNumServings = Int(self.selectedFoodArray[indexPath.row].numServings)
+            let diff = newNumServings! - oldNumServings
+            
             self.selectedFoodArray[indexPath.row].numServings = Int32(newNumServings!)
             self.saveFood()
             
+            let caloriesConsumed = self.defaults.integer(forKey: "caloriesConsumed")
+            let protienConsumed = self.defaults.integer(forKey: "proteinConsumed")
+            
             // adjust dashboard according to new change
-            self.defaults.set(Int(selectedFood.numServings) * Int(selectedFood.calories), forKey: "caloriesConsumed")
-            self.defaults.set(Int(selectedFood.numServings) * Int(selectedFood.protein), forKey: "proteinConsumed")
+            self.defaults.set(caloriesConsumed + diff * Int(selectedFood.calories), forKey: "caloriesConsumed")
+            self.defaults.set(protienConsumed + diff * Int(selectedFood.protein), forKey: "proteinConsumed")
         }
         
         alert.addTextField { alertTextField in
