@@ -27,8 +27,36 @@ class FoodsViewController : UIViewController {
         foodTableView.dataSource = self
         foodTableView.delegate = self
         addSelectedFoodsButton.layer.cornerRadius = 10.0
+        
+        // reset macros at 00:00 every day
+        let calendar = Calendar.current
+        let now = Date()
+        let date = calendar.date(
+            bySettingHour: 00,
+            minute: 00,
+            second: 0,
+            of: now)!
+        
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(resetMacros), userInfo: nil, repeats: false)
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
+    @objc private func resetMacros() {
+        defaults.set(0, forKey: "calorisConsumed")
+        defaults.set(0, forKey: "proteinConsumed")
+        uncheckItems()
+    }
+    
+    // remove all selected items everyday
+    private func uncheckItems() {
+        for food in foodArray {
+            if food.selected {
+                food.selected = false
+            }
+        }
+        saveFood()
+    }
+
     //MARK: - Adding Food Methods
     
     // saves food item to database
