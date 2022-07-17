@@ -398,6 +398,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableFooterView" contentMode="redraw" id="7Ub-mc-U4X">
+                                    <rect key="frame" x="0.0" y="111" width="358" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodCell" textLabel="Als-Jc-Elv" detailTextLabel="LHf-8q-WBt" style="IBUITableViewCellStyleValue1" id="rsi-Wv-BBW" customClass="SwipeTableViewCell" customModule="SwipeCellKit">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="358" height="43.666667938232422"/>
@@ -459,6 +464,7 @@
                     <connections>
                         <outlet property="addSelectedFoodsButton" destination="Iiu-7y-uqz" id="ud0-Qu-kcf"/>
                         <outlet property="foodTableView" destination="koz-ta-k9k" id="WRE-yb-LTf"/>
+                        <outlet property="searchBar" destination="7Ub-mc-U4X" id="txQ-vq-ilU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOY-XP-Qwz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -470,7 +476,7 @@
             <objects>
                 <viewController id="xCY-Ey-jp0" userLabel="Diary View Controller" customClass="DiaryViewController" customModule="Fitness_Tracker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dog-6D-a2P">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGA-V8-Lyl">
@@ -603,7 +609,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="klg-Da-Ipm"/>
-        <segue reference="Eug-S6-gWv"/>
+        <segue reference="hKT-Qv-8ri"/>
         <segue reference="6lr-jb-sHK"/>
     </inferredMetricsTieBreakers>
     <resources>

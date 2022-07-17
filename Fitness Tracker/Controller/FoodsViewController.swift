@@ -17,6 +17,7 @@ class FoodsViewController : UIViewController {
     
     @IBOutlet weak var addSelectedFoodsButton: UIButton!
     @IBOutlet weak var foodTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewWillAppear(_ animated: Bool) {
         loadFood()
@@ -118,7 +119,8 @@ class FoodsViewController : UIViewController {
     }
     
     // load foods from database
-    func loadFood(with request: NSFetchRequest<Food> = Food.fetchRequest()) {
+    func loadFood(with request: NSFetchRequest<Food> = Food.fetchRequest(), predicate : NSPredicate? = nil) {
+        request.predicate = predicate
         do {
             foodArray = try context.fetch(request)
         } catch {
@@ -259,5 +261,34 @@ extension FoodsViewController : SwipeTableViewCellDelegate {
         var options = SwipeOptions()
         options.expansionStyle = .destructive
         return options
+    }
+}
+
+//MARK: - SearchBar delegates
+
+extension FoodsViewController : UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // create request
+        let request: NSFetchRequest<Food> = Food.fetchRequest()
+        let predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchBar.text!)
+        
+        // sort data
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        // perform request/query
+        loadFood(with: request, predicate: predicate)
+    }
+    
+    // reset list to original when "x" is pressed
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if (searchBar.text!.count == 0) {
+            loadFood()
+            
+            // make sure the process doesn't get sent to background thread
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
     }
 }
