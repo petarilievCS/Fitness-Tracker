@@ -41,12 +41,20 @@ class FoodsViewController : UIViewController {
         
         let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(resetMacros), userInfo: nil, repeats: false)
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
+        
+        // dismiss keyboard when user taps anywhere
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     @objc private func resetMacros() {
         defaults.set(0, forKey: "calorisConsumed")
         defaults.set(0, forKey: "proteinConsumed")
         uncheckItems()
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     // remove all selected items everyday
@@ -290,11 +298,6 @@ extension FoodsViewController : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if (searchBar.text!.count == 0) {
             loadFood()
-            
-            // make sure the process doesn't get sent to background thread
-            DispatchQueue.main.async {
-                searchBar.resignFirstResponder()
-            }
         }
     }
 }
