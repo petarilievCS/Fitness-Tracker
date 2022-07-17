@@ -27,6 +27,7 @@ class FoodsViewController : UIViewController {
         super.viewDidLoad()
         foodTableView.dataSource = self
         foodTableView.delegate = self
+        searchBar.delegate = self
         addSelectedFoodsButton.layer.cornerRadius = 10.0
         
         // reset macros at 00:00 every day
@@ -126,6 +127,11 @@ class FoodsViewController : UIViewController {
         } catch {
            print("Error while fetching data")
         }
+        
+        for food in foodArray {
+            print(food.name)
+        }
+        
         foodTableView.reloadData()
     }
 }
