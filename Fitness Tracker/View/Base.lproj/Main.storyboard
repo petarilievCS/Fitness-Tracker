@@ -71,7 +71,7 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="18" minimumValue="12" maximumValue="130" translatesAutoresizingMaskIntoConstraints="NO" id="Xyc-m8-hyh">
+                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="12" minimumValue="12" maximumValue="130" translatesAutoresizingMaskIntoConstraints="NO" id="Xyc-m8-hyh">
                                                                 <rect key="frame" x="39" y="0.0" width="88" height="32"/>
                                                                 <connections>
                                                                     <action selector="ageChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="1FU-fQ-vJj"/>
@@ -100,7 +100,7 @@
                                                             <constraint firstAttribute="width" constant="70" id="VmW-lq-NPE"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -124,7 +124,7 @@
                                                             <constraint firstAttribute="width" constant="70" id="CkW-rc-IB8"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
