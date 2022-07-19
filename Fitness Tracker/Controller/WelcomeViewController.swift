@@ -43,15 +43,16 @@ class WelcomeViewController: UIViewController {
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         
-        // store sex
-        selectedGender.selectedSegmentIndex == 0 ? defaults.set("M", forKey: "Sex") :  defaults.set("F", forKey: "Sex")
-        
-        // store age
-        defaults.set(Int(ageLabel.text!), forKey: "Age")
-        
-        // store height and weight
-        defaults.set(heightTextField.text, forKey: "Height")
-        defaults.set(weightTextField.text, forKey: "Weight")
+        // prevent errors
+        if (heightTextField.text != "") && (weightTextField.text != "") {
+            // store metrics
+            selectedGender.selectedSegmentIndex == 0 ? defaults.set("M", forKey: "Sex") :  defaults.set("F", forKey: "Sex")
+            defaults.set(Int(ageLabel.text!), forKey: "Age")
+            defaults.set(heightTextField.text, forKey: "Height")
+            defaults.set(weightTextField.text, forKey: "Weight")
+            
+            performSegue(withIdentifier: "welcomeToGoals", sender: self)
+        }
     }
     
     @objc func dismissKeyboard() {

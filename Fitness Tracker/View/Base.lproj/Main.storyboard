@@ -144,7 +144,6 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="nextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mMk-1n-hfK"/>
-                                            <segue destination="c4v-to-VcU" kind="show" id="nLX-xA-CWs"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -168,6 +167,7 @@
                         <outlet property="selectedGender" destination="yHF-OU-fPc" id="Hax-ZW-tqs"/>
                         <outlet property="weightTextField" destination="pFb-TF-XgN" id="nrB-0T-kTT"/>
                         <outlet property="welcomeLabel" destination="B3U-AF-bHf" id="RzO-ch-6wg"/>
+                        <segue destination="c4v-to-VcU" kind="show" identifier="welcomeToGoals" id="0IL-xQ-3H7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
