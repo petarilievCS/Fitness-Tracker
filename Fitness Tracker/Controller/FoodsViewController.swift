@@ -27,6 +27,7 @@ class FoodsViewController : UIViewController {
         super.viewDidLoad()
         foodTableView.dataSource = self
         foodTableView.delegate = self
+        foodTableView.allowsSelection = true
         searchBar.delegate = self
         addSelectedFoodsButton.layer.cornerRadius = 10.0
         
@@ -41,20 +42,12 @@ class FoodsViewController : UIViewController {
         
         let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(resetMacros), userInfo: nil, repeats: false)
         RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
-        
-        // dismiss keyboard when user taps anywhere
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
     }
     
     @objc private func resetMacros() {
         defaults.set(0, forKey: "calorisConsumed")
         defaults.set(0, forKey: "proteinConsumed")
         uncheckItems()
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
     
     // remove all selected items everyday
@@ -136,10 +129,6 @@ class FoodsViewController : UIViewController {
            print("Error while fetching data")
         }
         
-        for food in foodArray {
-            print(food.name)
-        }
-        
         foodTableView.reloadData()
     }
 }
@@ -181,6 +170,8 @@ extension FoodsViewController : UITableViewDataSource {
 extension FoodsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print(indexPath.row)
         
         let caloriesConsumed = defaults.integer(forKey: "caloriesConsumed")
         let proteinConsumed = defaults.integer(forKey: "proteinConsumed")
@@ -279,7 +270,6 @@ extension FoodsViewController : SwipeTableViewCellDelegate {
 }
 
 //MARK: - SearchBar delegates
-
 extension FoodsViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -300,4 +290,10 @@ extension FoodsViewController : UISearchBarDelegate {
             loadFood()
         }
     }
+    
+    // put down keyboard when user is done searching
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
 }
