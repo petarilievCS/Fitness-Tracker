@@ -65,14 +65,14 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="zgf-My-DvQ">
                                                         <rect key="frame" x="118" y="0.0" width="127" height="32"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoX-fs-2Ik">
-                                                                <rect key="frame" x="0.0" y="0.0" width="27" height="32"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoX-fs-2Ik">
+                                                                <rect key="frame" x="0.0" y="0.0" width="26" height="32"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="18" maximumValue="150" translatesAutoresizingMaskIntoConstraints="NO" id="Xyc-m8-hyh">
-                                                                <rect key="frame" x="40" y="0.0" width="87" height="32"/>
+                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="18" minimumValue="12" maximumValue="130" translatesAutoresizingMaskIntoConstraints="NO" id="Xyc-m8-hyh">
+                                                                <rect key="frame" x="39" y="0.0" width="88" height="32"/>
                                                                 <connections>
                                                                     <action selector="ageChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="1FU-fQ-vJj"/>
                                                                 </connections>
