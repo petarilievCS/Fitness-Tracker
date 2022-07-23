@@ -232,10 +232,31 @@ extension FoodsViewController : SwipeTableViewCellDelegate {
                 
                 let alert = UIAlertController(title: "Edit Food", message: "", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Edit", style: .default) { action in
-                    currentFood.name = titleTextField.text!
-                    currentFood.servingSize = servingTextField.text!
-                    currentFood.calories = Double(calorieTextField.text!)!
-                    currentFood.protein = Double(proteinTextField.text!)!
+                    
+                    if titleTextField.text! != "" {
+                        currentFood.name = titleTextField.text!
+                    }
+                    
+                    if servingTextField.text! != "" {
+                        currentFood.servingSize = servingTextField.text!
+                    }
+                    
+                    if (calorieTextField.text! != "") {
+                        if Int(calorieTextField.text!) != nil {
+                            currentFood.calories = Double(calorieTextField.text!)!
+                        } else {
+                            currentFood.calories = 0.0
+                        }
+                    }
+                    
+                    if (proteinTextField.text! != "") {
+                        if Int(proteinTextField.text!) != nil {
+                            currentFood.protein = Double(proteinTextField.text!)!
+                        } else {
+                            currentFood.protein = 0.0
+                        }
+                    }
+                    
                     // currentFood.selected = false
                     self.foodArray.replaceSubrange(indexPath.row...indexPath.row, with: [currentFood])
                     self.saveFood()
