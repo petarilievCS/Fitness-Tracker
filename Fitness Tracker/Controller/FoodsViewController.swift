@@ -75,8 +75,19 @@ class FoodsViewController : UIViewController {
             let newFood = Food(context: self.context)
             newFood.name = titleTextField.text!
             newFood.servingSize = servingTextField.text!
-            newFood.calories = Double(calorieTextField.text!)!
-            newFood.protein = Double(proteinTextField.text!)!
+            
+            if Int(calorieTextField.text!) != nil {
+                newFood.calories = Double(calorieTextField.text!)!
+            } else {
+                newFood.calories = 0.0
+            }
+            
+            if Int(proteinTextField.text!) != nil {
+                newFood.protein = Double(proteinTextField.text!)!
+            } else {
+                newFood.protein = 0.0
+            }
+            
             newFood.selected = false
             newFood.numServings = 1
             self.foodArray.append(newFood)

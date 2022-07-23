@@ -45,8 +45,6 @@ class DashboardViewController : UIViewController {
         
         // set progress view
         caloriesProgressView.progress = Float(caloriesConsumed) / Float(calories!)
-        
-        
         proteinProgressView.progress = Float(proteinConsumed) / Float(protein!)
     }
     
