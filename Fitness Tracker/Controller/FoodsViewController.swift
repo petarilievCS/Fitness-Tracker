@@ -76,13 +76,13 @@ class FoodsViewController : UIViewController {
             newFood.name = titleTextField.text!
             newFood.servingSize = servingTextField.text!
             
-            if Int(calorieTextField.text!) != nil {
+            if calorieTextField.text! != "" {
                 newFood.calories = Double(calorieTextField.text!)!
             } else {
                 newFood.calories = 0.0
             }
             
-            if Int(proteinTextField.text!) != nil {
+            if proteinTextField.text! != "" {
                 newFood.protein = Double(proteinTextField.text!)!
             } else {
                 newFood.protein = 0.0
@@ -106,11 +106,13 @@ class FoodsViewController : UIViewController {
         
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Enter calories per serving..."
+            alertTextField.keyboardType = .numberPad
             calorieTextField = alertTextField
         }
         
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Enter protein per serving..."
+            alertTextField.keyboardType = .numberPad
             proteinTextField = alertTextField
         }
         
@@ -242,19 +244,11 @@ extension FoodsViewController : SwipeTableViewCellDelegate {
                     }
                     
                     if (calorieTextField.text! != "") {
-                        if Int(calorieTextField.text!) != nil {
-                            currentFood.calories = Double(calorieTextField.text!)!
-                        } else {
-                            currentFood.calories = 0.0
-                        }
+                        currentFood.calories = Double(calorieTextField.text!)!
                     }
                     
                     if (proteinTextField.text! != "") {
-                        if Int(proteinTextField.text!) != nil {
-                            currentFood.protein = Double(proteinTextField.text!)!
-                        } else {
-                            currentFood.protein = 0.0
-                        }
+                        currentFood.protein = Double(proteinTextField.text!)!
                     }
                     
                     // currentFood.selected = false
@@ -274,11 +268,13 @@ extension FoodsViewController : SwipeTableViewCellDelegate {
                 
                 alert.addTextField { alertTextField in
                     alertTextField.placeholder = String(Int(currentFood.calories))
+                    alertTextField.keyboardType = .numberPad
                     calorieTextField = alertTextField
                 }
                 
                 alert.addTextField { alertTextField in
-                    alertTextField.placeholder = String(Int(currentFood.protein) )
+                    alertTextField.placeholder = String(Int(currentFood.protein))
+                    alertTextField.keyboardType = .numberPad
                     proteinTextField = alertTextField
                 }
                 
