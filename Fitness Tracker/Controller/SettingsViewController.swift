@@ -14,6 +14,7 @@ class SettingsViewController : UIViewController {
     @IBOutlet weak var resetMealsButton: UIButton!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +45,9 @@ class SettingsViewController : UIViewController {
             self.context.delete(foodArray[i])
         }
         
-        print(foodArray.count)
         foodArray.removeAll()
-        print(foodArray.count)
+        defaults.set(0, forKey: "caloriesConsumed")
+        defaults.set(0, forKey: "proteinConsumed")
         
         do {
             try self.context.save()

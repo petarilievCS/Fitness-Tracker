@@ -31,25 +31,27 @@ class FoodsViewController : UIViewController {
         searchBar.delegate = self
         addSelectedFoodsButton.layer.cornerRadius = 10.0
         
-        // reset macros at 00:00 every day
-//        let calendar = Calendar.current
-//        let now = Date()
-//        let date = calendar.date(
-//            bySettingHour: 00,
-//            minute: 00,
-//            second: 0,
-//            of: now)!
-//        
-//        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(resetMacros), userInfo: nil, repeats: false)
-//        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
+        // refresh data if needed
+        let lastRefreshed = defaults.integer(forKey: "lastRefreshed")
+        let date = Date()
+        let calendar = Calendar.current
+        let today = calendar.component(.day, from: date)
+        
+        if lastRefreshed != today {
+            uncheckItems()
+            resetCalorieIntake()
+        }
+        
+        if defaults.integer(forKey: "caloriesConsumed") == 0 {
+            loadFood()
+            uncheckItems()
+            defaults.set(0, forKey: "caloriesConsumed")
+            defaults.set(0, forKey: "proteinConsumed")
+            foodTableView.reloadData()
+        }
+        
     }
-    
-        /* @objc private func resetMacros() {
-        defaults.set(0, forKey: "calorisConsumed")
-        defaults.set(0, forKey: "proteinConsumed")
-        uncheckItems()
-    }
-    
+
     // remove all selected items everyday
     private func uncheckItems() {
         for food in foodArray {
@@ -57,9 +59,8 @@ class FoodsViewController : UIViewController {
                 food.selected = false
             }
         }
-        print("Diary has been reset")
         saveFood()
-    } */
+    }
 
     //MARK: - Adding Food Methods
     
@@ -159,7 +160,6 @@ class FoodsViewController : UIViewController {
         } catch {
            print("Error while fetching data")
         }
-        
         foodTableView.reloadData()
     }
 }

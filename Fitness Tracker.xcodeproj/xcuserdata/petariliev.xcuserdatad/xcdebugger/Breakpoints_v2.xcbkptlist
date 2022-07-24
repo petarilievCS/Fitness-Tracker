@@ -36,5 +36,113 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49AF5D90-E2CF-468A-97DE-6AECF48B530D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Fitness Tracker/Controller/WelcomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "WelcomeViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "49AF5D90-E2CF-468A-97DE-6AECF48B530D - 93a93d2f96e4147c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Fitness_Tracker.WelcomeViewController.heightTextField.getter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "Fitness Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petariliev/Desktop/Personal%20Projects/iOS%20Applications/Fitness%20Tracker/Fitness%20Tracker/Controller/WelcomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "49AF5D90-E2CF-468A-97DE-6AECF48B530D - db3d9b17ef26c070"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Fitness_Tracker.WelcomeViewController.heightTextField.setter : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "Fitness Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petariliev/Desktop/Personal%20Projects/iOS%20Applications/Fitness%20Tracker/Fitness%20Tracker/Controller/WelcomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "49AF5D90-E2CF-468A-97DE-6AECF48B530D - ab48c1b8d138bf61"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Fitness_Tracker.WelcomeViewController.heightTextField.modify : Swift.Optional&lt;__C.UITextField&gt;"
+                  moduleName = "Fitness Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petariliev/Desktop/Personal%20Projects/iOS%20Applications/Fitness%20Tracker/Fitness%20Tracker/Controller/WelcomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "49AF5D90-E2CF-468A-97DE-6AECF48B530D - 5ef173a2b7a402a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Fitness_Tracker.WelcomeViewController.heightTextField.modify : Swift.Optional&lt;__C.UITextField&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Fitness Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petariliev/Desktop/Personal%20Projects/iOS%20Applications/Fitness%20Tracker/Fitness%20Tracker/Controller/WelcomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "49AF5D90-E2CF-468A-97DE-6AECF48B530D - 799c2e92609e466e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Fitness_Tracker.WelcomeViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Fitness_Tracker.WelcomeViewController"
+                  moduleName = "Fitness Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petariliev/Desktop/Personal%20Projects/iOS%20Applications/Fitness%20Tracker/Fitness%20Tracker/Controller/WelcomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "508">
+               </Location>
+               <Location
+                  uuid = "49AF5D90-E2CF-468A-97DE-6AECF48B530D - 28d365eadecc30ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Fitness_Tracker.WelcomeViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Fitness_Tracker.WelcomeViewController&gt;"
+                  moduleName = "Fitness Tracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petariliev/Desktop/Personal%20Projects/iOS%20Applications/Fitness%20Tracker/Fitness%20Tracker/Controller/WelcomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "488">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
