@@ -32,19 +32,19 @@ class FoodsViewController : UIViewController {
         addSelectedFoodsButton.layer.cornerRadius = 10.0
         
         // reset macros at 00:00 every day
-        let calendar = Calendar.current
-        let now = Date()
-        let date = calendar.date(
-            bySettingHour: 00,
-            minute: 00,
-            second: 0,
-            of: now)!
-        
-        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(resetMacros), userInfo: nil, repeats: false)
-        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
+//        let calendar = Calendar.current
+//        let now = Date()
+//        let date = calendar.date(
+//            bySettingHour: 00,
+//            minute: 00,
+//            second: 0,
+//            of: now)!
+//        
+//        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(resetMacros), userInfo: nil, repeats: false)
+//        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
-    @objc private func resetMacros() {
+        /* @objc private func resetMacros() {
         defaults.set(0, forKey: "calorisConsumed")
         defaults.set(0, forKey: "proteinConsumed")
         uncheckItems()
@@ -57,8 +57,9 @@ class FoodsViewController : UIViewController {
                 food.selected = false
             }
         }
+        print("Diary has been reset")
         saveFood()
-    }
+    } */
 
     //MARK: - Adding Food Methods
     
@@ -118,6 +119,23 @@ class FoodsViewController : UIViewController {
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: - Helper methods
+    func resetCalorieIntake() {
+        
+        var calorieIntake = 0
+        var proteinIntake = 0
+        
+        for food in foodArray {
+            if food.selected {
+                calorieIntake += Int(food.numServings) * Int(food.calories)
+                proteinIntake += Int(food.numServings) * Int(food.protein)
+            }
+        }
+        
+        defaults.set(calorieIntake, forKey: "caloriesConsumed")
+        defaults.set(proteinIntake, forKey: "proteinConsumed")
     }
     
     
@@ -221,7 +239,7 @@ extension FoodsViewController : SwipeTableViewCellDelegate {
                 } catch {
                     print("Error whil saving context")
                 }
-                
+                self.resetCalorieIntake()
             }
             
             let editAction = SwipeAction(style: .default, title: "Edit") { action, indexPAth in
