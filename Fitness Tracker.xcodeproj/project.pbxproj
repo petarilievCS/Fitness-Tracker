@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6AE2AC5C288F45D400E4F617 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6AE2AC5B288F45D400E4F617 /* SwipeCellKit */; };
 		E61B9DFC287D14E300D97A30 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = E61B9DFB287D14E300D97A30 /* SwipeCellKit */; };
 		E69F8C13286F598B0094371C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C12286F598B0094371C /* AppDelegate.swift */; };
 		E69F8C15286F598B0094371C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C14286F598B0094371C /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AE2AC5C288F45D400E4F617 /* SwipeCellKit in Frameworks */,
 				E61B9DFC287D14E300D97A30 /* SwipeCellKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +131,7 @@
 			name = "Fitness Tracker";
 			packageProductDependencies = (
 				E61B9DFB287D14E300D97A30 /* SwipeCellKit */,
+				6AE2AC5B288F45D400E4F617 /* SwipeCellKit */,
 			);
 			productName = "Fitness Tracker";
 			productReference = E69F8C0F286F598B0094371C /* Fitness Tracker.app */;
@@ -160,6 +163,7 @@
 			mainGroup = E69F8C06286F598B0094371C;
 			packageReferences = (
 				E61B9DFA287D14E300D97A30 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+				6AE2AC5A288F45D400E4F617 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
 			);
 			productRefGroup = E69F8C10286F598B0094371C /* Products */;
 			projectDirPath = "";
@@ -353,6 +357,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,6 +388,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -420,6 +426,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6AE2AC5A288F45D400E4F617 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		E61B9DFA287D14E300D97A30 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
@@ -431,6 +445,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6AE2AC5B288F45D400E4F617 /* SwipeCellKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E61B9DFA287D14E300D97A30 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
+			productName = SwipeCellKit;
+		};
 		E61B9DFB287D14E300D97A30 /* SwipeCellKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E61B9DFA287D14E300D97A30 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
