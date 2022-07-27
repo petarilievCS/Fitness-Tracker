@@ -182,16 +182,19 @@ extension FoodsViewController : UITableViewDataSource {
         let detailData = String(Int(currentFood.calories)) + " kcal, " + String(Int(currentFood.protein)) + " g"
         cell.detailTextLabel?.text = detailData
         
-        cell.backgroundColor = UIColor(named: "veryDarkGray")
+        // cell.backgroundColor = UIColor(named: "yellow")
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15.0)
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
         
         // add checkmark when selected
         if (currentFood.selected) {
             cell.accessoryType = .checkmark
+            cell.accessoryView?.backgroundColor = UIColor.green
         } else {
             cell.accessoryType = .none
         }
+        
+        
          
         return cell
     }
