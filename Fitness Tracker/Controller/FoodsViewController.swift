@@ -189,7 +189,6 @@ extension FoodsViewController : UITableViewDataSource {
         // add checkmark when selected
         if (currentFood.selected) {
             cell.accessoryType = .checkmark
-            cell.accessoryView?.backgroundColor = UIColor.green
         } else {
             cell.accessoryType = .none
         }

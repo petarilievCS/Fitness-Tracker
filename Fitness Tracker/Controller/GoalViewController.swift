@@ -26,7 +26,6 @@ class GoalViewController: UIViewController {
         goalPicker.delegate = self
         
         nextButton.layer.cornerRadius = 10.0
-        
         super.viewDidLoad()
     }
     
@@ -40,6 +39,8 @@ class GoalViewController: UIViewController {
         defaults.set(true, forKey: "infoEntered")
     }
 }
+
+//MARK: - UIPickerView methods
 
 extension GoalViewController:  UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

@@ -28,12 +28,8 @@ class SettingsViewController : UIViewController {
     // reset all meals
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         
-        print("Pressed")
-        
         let foodRequest : NSFetchRequest<Food> =  Food.fetchRequest()
         var foodArray = [Food]()
-        
-        
         
         do {
             try foodArray = self.context.fetch(foodRequest)

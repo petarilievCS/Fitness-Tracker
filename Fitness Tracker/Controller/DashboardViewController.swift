@@ -25,7 +25,6 @@ class DashboardViewController : UIViewController {
     var goal : Int?
     var calories : Int?
     var protein : Int?
-    
     var caloriesConsumed = 0
     var proteinConsumed = 0
     
@@ -34,7 +33,6 @@ class DashboardViewController : UIViewController {
         weight = defaults.integer(forKey: "Weight")
         calories = defaults.integer(forKey: "Calories")
         protein = defaults.integer(forKey: "Protein")
-        
         caloriesConsumed = defaults.integer(forKey: "caloriesConsumed")
         proteinConsumed = defaults.integer(forKey: "proteinConsumed")
         
@@ -54,6 +52,7 @@ class DashboardViewController : UIViewController {
         defaults.set(dailyCalories, forKey: "Calories")
         defaults.set(dailyProtein, forKey: "Protein")
         
+        // make progress view bigger
         caloriesProgressView.transform = caloriesProgressView.transform.scaledBy(x: 1, y: 10)
         proteinProgressView.transform = proteinProgressView.transform.scaledBy(x: 1, y: 10)
         

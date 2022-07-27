@@ -8,9 +8,7 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    
-    let blue = "signatureBlue"
-    
+
     let defaults = UserDefaults.standard
     
     @IBOutlet var backgroundView: UIView!
