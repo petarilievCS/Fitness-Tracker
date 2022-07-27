@@ -87,10 +87,6 @@ class DiaryViewController : UIViewController {
 //MARK: - Table view data source methods
 extension DiaryViewController : UITableViewDataSource {
     
-    func countCheckedFoods() -> Int {
-        return 3
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectedFoodArray.count
     }
@@ -106,7 +102,6 @@ extension DiaryViewController : UITableViewDataSource {
         let detailData = String(Int(currentFood.calories) * numServings) + " kcal, " + String(Int(currentFood.protein) * numServings) + " g"
         cell.detailTextLabel?.text = detailData
         
-        cell.backgroundColor = UIColor(named: "veryDarkGray")
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15.0)
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15.0)
         

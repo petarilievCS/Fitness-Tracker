@@ -8,9 +8,11 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    
+
     let defaults = UserDefaults.standard
     
+    @IBOutlet var backgroundView: UIView!
+    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var genderSelector: UISegmentedControl!
     @IBOutlet weak var selectedGender: UISegmentedControl!
@@ -46,6 +48,7 @@ class WelcomeViewController: UIViewController {
             defaults.set(Int(ageLabel.text!), forKey: "Age")
             defaults.set(heightTextField.text, forKey: "Height")
             defaults.set(weightTextField.text, forKey: "Weight")
+            
             performSegue(withIdentifier: "welcomeToGoals", sender: self)
         }
     }
