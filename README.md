@@ -3,4 +3,4 @@ iOS application catered towards people who are passionate about fitness. The app
 
 
 
-![Fitness Tracker Demo 2 (4)](https://user-images.githubusercontent.com/90746623/181308467-877819a1-9812-4c5e-bd73-140cb4c72c7f.gif)
+![Fitness Tracker Demo 2 (4)](https://user-images.githubusercontent.com/90746623/181308467-877819a1-9812-4c5e-bd73-140cb4c72c7f.gif =250x250)
