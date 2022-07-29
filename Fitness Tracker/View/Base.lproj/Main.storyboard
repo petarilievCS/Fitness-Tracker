@@ -266,7 +266,7 @@
             <objects>
                 <viewController id="a8C-9S-D1K" customClass="SettingsViewController" customModule="Fitness_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tQX-TA-Xpf">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lsf-le-jCI">
@@ -373,12 +373,44 @@
                                 <color key="tintColor" name="lighterBlue"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Weight:        67.0 kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOY-h3-gRO">
-                                <rect key="frame" x="16" y="413" width="281" height="28"/>
+                                <rect key="frame" x="16" y="401" width="281" height="27.666666666666668"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Creatine:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-KX-XbQ">
+                                <rect key="frame" x="16" y="453.66666666666663" width="94.666666666666671" height="30.666666666666668"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tq3-Os-JYs">
+                                <rect key="frame" x="117" y="454.99999999999994" width="45" height="30.666666666666668"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="lighterBlue"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="" imagePadding="-3">
+                                    <imageReference key="image" image="checkmark.square.fill" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vitamins:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7l-nc-wam">
+                                <rect key="frame" x="16" y="506.33333333333331" width="97.333333333333329" height="30.666666666666668"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWu-la-zrM">
+                                <rect key="frame" x="117" y="508.99999999999994" width="45" height="30.666666666666668"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="lighterBlue"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePadding="-3">
+                                    <imageReference key="image" image="square" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vEj-ra-Iea"/>
                         <color key="backgroundColor" name="backgroundBlue"/>
@@ -516,7 +548,7 @@
             <objects>
                 <viewController id="xCY-Ey-jp0" userLabel="Diary View Controller" customClass="DiaryViewController" customModule="Fitness_Tracker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dog-6D-a2P">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHK-gm-7x4">
@@ -655,17 +687,18 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ocN-Vg-arL"/>
         <segue reference="thy-Eg-uKD"/>
         <segue reference="hKT-Qv-8ri"/>
         <segue reference="nsX-4Y-gqs"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="gearshape.2.fill" catalog="system" width="128" height="100"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="leaf.fill" catalog="system" width="128" height="106"/>
         <image name="note.text" catalog="system" width="128" height="106"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <namedColor name="backgroundBlue">
             <color red="0.12941176470588237" green="0.18431372549019609" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
