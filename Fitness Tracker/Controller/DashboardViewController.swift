@@ -57,12 +57,21 @@ class DashboardViewController : UIViewController {
         defaults.set(dailyCalories, forKey: "Calories")
         defaults.set(dailyProtein, forKey: "Protein")
         
+        creatineTaken = defaults.bool(forKey: "creatine")
+        vitaminsTaken = defaults.bool(forKey: "vitamins")
+        setCheckboxes()
+        
         // make progress view bigger
         caloriesProgressView.transform = caloriesProgressView.transform.scaledBy(x: 1, y: 10)
         proteinProgressView.transform = proteinProgressView.transform.scaledBy(x: 1, y: 10)
         
         navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        defaults.set(creatineTaken, forKey: "creatine")
+        defaults.set(vitaminsTaken, forKey: "vitamins")
     }
     
     // use Muffin-St Jeor formula to calculate BMR (basal metabolic rate)
@@ -130,6 +139,7 @@ class DashboardViewController : UIViewController {
             sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
             creatineTaken = true
         }
+        defaults.set(creatineTaken, forKey: "creatine")
     }
     
     @IBAction func vitaminsCheckbox(_ sender: UIButton) {
@@ -139,6 +149,22 @@ class DashboardViewController : UIViewController {
         } else {
             sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
             vitaminsTaken = true
+        }
+        defaults.set(vitaminsTaken, forKey: "vitamins")
+    }
+    
+    func setCheckboxes() {
+        
+        if creatineTaken {
+            creatineCheckbox.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+        } else {
+            creatineCheckbox.setImage(UIImage(systemName: "square"), for: .normal)
+        }
+        
+        if vitaminsTaken {
+            vitaminsCheckbox.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+        } else {
+            vitaminsCheckbox.setImage(UIImage(systemName: "square"), for: .normal)
         }
     }
     
