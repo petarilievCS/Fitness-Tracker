@@ -14,6 +14,8 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var caloriesProgressView: UIProgressView!
     @IBOutlet weak var proteinProgressView: UIProgressView!
+    @IBOutlet weak var creatineCheckbox: UIButton!
+    @IBOutlet weak var vitaminsCheckbox: UIButton!
     
     let defaults = UserDefaults.standard
     
@@ -27,6 +29,9 @@ class DashboardViewController : UIViewController {
     var protein : Int?
     var caloriesConsumed = 0
     var proteinConsumed = 0
+    
+    var creatineTaken = false
+    var vitaminsTaken = false
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -51,6 +56,21 @@ class DashboardViewController : UIViewController {
         let dailyProtein = Int(calculateProteinIntake())
         defaults.set(dailyCalories, forKey: "Calories")
         defaults.set(dailyProtein, forKey: "Protein")
+        
+        creatineTaken = defaults.bool(forKey: "creatine")
+        vitaminsTaken = defaults.bool(forKey: "vitamins")
+        setCheckboxes()
+        
+        // uncheck boxes every day
+        let lastRefreshed = defaults.integer(forKey: "lastRefreshed")
+        let date = Date()
+        let calendar = Calendar.current
+        let today = calendar.component(.day, from: date)
+        
+        if lastRefreshed != today {
+            creatineCheckbox.setImage(UIImage(systemName: "square"), for: .normal)
+            vitaminsCheckbox.setImage(UIImage(systemName: "square"), for: .normal)
+        }
         
         // make progress view bigger
         caloriesProgressView.transform = caloriesProgressView.transform.scaledBy(x: 1, y: 10)
@@ -114,6 +134,44 @@ class DashboardViewController : UIViewController {
     func calculateProteinIntake() -> Double {
         let weight = defaults.integer(forKey: "Weight")
         return Double(weight) * 0.8 * 2.2
+    }
+    
+    //MARK: - Checkbox methods
+    @IBAction func creatineChecked(_ sender: UIButton) {
+        if creatineTaken {
+            sender.setImage(UIImage(systemName: "square"), for: .normal)
+            creatineTaken = false
+        } else {
+            sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            creatineTaken = true
+        }
+        defaults.set(creatineTaken, forKey: "creatine")
+    }
+    
+    @IBAction func vitaminsCheckbox(_ sender: UIButton) {
+        if vitaminsTaken {
+            sender.setImage(UIImage(systemName: "square"), for: .normal)
+            vitaminsTaken = false
+        } else {
+            sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            vitaminsTaken = true
+        }
+        defaults.set(vitaminsTaken, forKey: "vitamins")
+    }
+    
+    func setCheckboxes() {
+        
+        if creatineTaken {
+            creatineCheckbox.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+        } else {
+            creatineCheckbox.setImage(UIImage(systemName: "square"), for: .normal)
+        }
+        
+        if vitaminsTaken {
+            vitaminsCheckbox.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+        } else {
+            vitaminsCheckbox.setImage(UIImage(systemName: "square"), for: .normal)
+        }
     }
     
 }
