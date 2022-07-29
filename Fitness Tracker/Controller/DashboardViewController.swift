@@ -14,6 +14,8 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var caloriesProgressView: UIProgressView!
     @IBOutlet weak var proteinProgressView: UIProgressView!
+    @IBOutlet weak var creatineCheckbox: UIButton!
+    @IBOutlet weak var vitaminsCheckbox: UIButton!
     
     let defaults = UserDefaults.standard
     
@@ -27,6 +29,9 @@ class DashboardViewController : UIViewController {
     var protein : Int?
     var caloriesConsumed = 0
     var proteinConsumed = 0
+    
+    var creatineTaken = false
+    var vitaminsTaken = false
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -114,6 +119,27 @@ class DashboardViewController : UIViewController {
     func calculateProteinIntake() -> Double {
         let weight = defaults.integer(forKey: "Weight")
         return Double(weight) * 0.8 * 2.2
+    }
+    
+    //MARK: - Checkbox methods
+    @IBAction func creatineChecked(_ sender: UIButton) {
+        if creatineTaken {
+            sender.setImage(UIImage(systemName: "square"), for: .normal)
+            creatineTaken = false
+        } else {
+            sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            creatineTaken = true
+        }
+    }
+    
+    @IBAction func vitaminsCheckbox(_ sender: UIButton) {
+        if vitaminsTaken {
+            sender.setImage(UIImage(systemName: "square"), for: .normal)
+            vitaminsTaken = false
+        } else {
+            sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
+            vitaminsTaken = true
+        }
     }
     
 }
