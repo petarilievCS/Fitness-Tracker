@@ -61,17 +61,23 @@ class DashboardViewController : UIViewController {
         vitaminsTaken = defaults.bool(forKey: "vitamins")
         setCheckboxes()
         
+        // uncheck boxes every day
+        let lastRefreshed = defaults.integer(forKey: "lastRefreshed")
+        let date = Date()
+        let calendar = Calendar.current
+        let today = calendar.component(.day, from: date)
+        
+        if lastRefreshed != today {
+            creatineCheckbox.setImage(UIImage(systemName: "square"), for: .normal)
+            vitaminsCheckbox.setImage(UIImage(systemName: "square"), for: .normal)
+        }
+        
         // make progress view bigger
         caloriesProgressView.transform = caloriesProgressView.transform.scaledBy(x: 1, y: 10)
         proteinProgressView.transform = proteinProgressView.transform.scaledBy(x: 1, y: 10)
         
         navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        defaults.set(creatineTaken, forKey: "creatine")
-        defaults.set(vitaminsTaken, forKey: "vitamins")
     }
     
     // use Muffin-St Jeor formula to calculate BMR (basal metabolic rate)
