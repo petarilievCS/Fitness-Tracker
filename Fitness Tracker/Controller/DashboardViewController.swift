@@ -68,14 +68,15 @@ class DashboardViewController : UIViewController {
         calorieLabel.text = "Calories: " + String(caloriesConsumed) + " / " + String(calories!) + " kcal"
         proteinLabel.text = "Protein: " + String(proteinConsumed) + " / " + String(protein!) + " g"
         weightLabel.text = "Current weight: " + String(weight!) + " kg"
-        stepsLabel.text = "Steps: " + String(dailySteps) + " / 10000"
+        stepsLabel.text = "Steps: " + String(dailySteps) + " / " + String(defaults.integer(forKey: "steps"))
         
         // set progress view
         caloriesProgressView.progress = Float(caloriesConsumed) / Float(calories!)
         proteinProgressView.progress = Float(proteinConsumed) / Float(protein!)
         
-        if Float(dailySteps) < 10000.0 {
-            stepsProgressView.progress = Float(dailySteps) / 10000.0
+        let stepsGoal = defaults.integer(forKey: "steps")
+        if Float(dailySteps) < Float(stepsGoal) {
+            stepsProgressView.progress = Float(dailySteps) / Float(stepsGoal)
         } else {
             stepsProgressView.progress = 1.0
         }

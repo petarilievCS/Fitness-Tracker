@@ -94,5 +94,21 @@ class SettingsViewController : UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func setStepsPressed(_ sender: UIButton) {
+        var stepsTextField = UITextField()
+
+        let alert = UIAlertController(title: "Set Steps", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Set", style: .default) { action in
+            if stepsTextField.text != "" {
+                self.defaults.set(Int(stepsTextField.text!), forKey: "steps")
+            }
+        }
+        alert.addTextField { alertTextField in
+            alertTextField.keyboardType = .numberPad
+            stepsTextField = alertTextField
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }

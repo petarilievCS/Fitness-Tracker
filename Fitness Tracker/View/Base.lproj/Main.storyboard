@@ -347,6 +347,9 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="baseForegroundColor" name="backgroundBlue"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="setStepsPressed:" destination="a8C-9S-D1K" eventType="touchUpInside" id="CTm-ie-Cf3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cHh-ux-xLx"/>
