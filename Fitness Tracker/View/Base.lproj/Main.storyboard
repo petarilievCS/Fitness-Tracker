@@ -266,7 +266,7 @@
             <objects>
                 <viewController id="a8C-9S-D1K" customClass="SettingsViewController" customModule="Fitness_Tracker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tQX-TA-Xpf">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lsf-le-jCI">
@@ -320,7 +320,7 @@
                                     <color key="baseForegroundColor" name="backgroundBlue"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="resetButtonPressed:" destination="a8C-9S-D1K" eventType="touchUpInside" id="RqN-Ts-Znr"/>
+                                    <action selector="setCaloriesPressed:" destination="a8C-9S-D1K" eventType="touchUpInside" id="JKd-1B-h1m"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yek-Zw-HUG">
@@ -333,9 +333,6 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="baseForegroundColor" name="backgroundBlue"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="resetButtonPressed:" destination="a8C-9S-D1K" eventType="touchUpInside" id="C3O-Hc-1gP"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlo-M2-8TG">
                                 <rect key="frame" x="16" y="447.66666666666663" width="194.66666666666666" height="35.666666666666686"/>
@@ -347,9 +344,6 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                     <color key="baseForegroundColor" name="backgroundBlue"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="resetButtonPressed:" destination="a8C-9S-D1K" eventType="touchUpInside" id="LyS-gX-0qs"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cHh-ux-xLx"/>
@@ -615,7 +609,7 @@
             <objects>
                 <viewController id="xCY-Ey-jp0" userLabel="Diary View Controller" customClass="DiaryViewController" customModule="Fitness_Tracker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dog-6D-a2P">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHK-gm-7x4">

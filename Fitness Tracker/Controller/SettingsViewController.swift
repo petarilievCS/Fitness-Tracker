@@ -30,9 +30,6 @@ class SettingsViewController : UIViewController {
         setCaloriesButton.layer.cornerRadius = 10.0
     }
     
-    
-    
-    
     // reset all meals
     @IBAction func resetButtonPressed(_ sender: UIButton) {
         
@@ -58,6 +55,24 @@ class SettingsViewController : UIViewController {
         } catch {
             print(error)
         }
+    }
+    
+    // set custom calories
+    @IBAction func setCaloriesPressed(_ sender: UIButton) {
+        var calorieTextField = UITextField()
+
+        let alert = UIAlertController(title: "Set Custom Calories", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Set", style: .default) { action in
+            if calorieTextField.text != "" {
+                self.defaults.set(Int(calorieTextField.text!), forKey: "calories")
+            }
+        }
+        alert.addTextField { alertTextField in
+            alertTextField.keyboardType = .numberPad
+            calorieTextField = alertTextField
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
