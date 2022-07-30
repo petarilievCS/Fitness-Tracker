@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import HealthKit
 
 class DashboardViewController : UIViewController {
     
@@ -16,8 +17,11 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var proteinProgressView: UIProgressView!
     @IBOutlet weak var creatineCheckbox: UIButton!
     @IBOutlet weak var vitaminsCheckbox: UIButton!
+    @IBOutlet weak var stepsLabel: UILabel!
+    @IBOutlet weak var stepsProgressView: UIProgressView!
     
     let defaults = UserDefaults.standard
+    let healthStore = HKHealthStore()
     
     var gender : String?
     var age : Int?
@@ -27,6 +31,7 @@ class DashboardViewController : UIViewController {
     var goal : Int?
     var calories : Int?
     var protein : Int?
+    var dailySteps : Int = 0
     var caloriesConsumed = 0
     var proteinConsumed = 0
     
@@ -40,18 +45,35 @@ class DashboardViewController : UIViewController {
         protein = defaults.integer(forKey: "Protein")
         caloriesConsumed = defaults.integer(forKey: "caloriesConsumed")
         proteinConsumed = defaults.integer(forKey: "proteinConsumed")
+        dailySteps = defaults.integer(forKey: "dailySteps")
         
         // set labels according to user metrics
         calorieLabel.text = "Calories: " + String(caloriesConsumed) + " / " + String(calories!) + " kcal"
         proteinLabel.text = "Protein: " + String(proteinConsumed) + " / " + String(protein!) + " g"
         weightLabel.text = "Current weight: " + String(weight!) + " kg"
+        stepsLabel.text = "Steps: " + String(dailySteps) + " / 10000"
         
         // set progress view
         caloriesProgressView.progress = Float(caloriesConsumed) / Float(calories!)
         proteinProgressView.progress = Float(proteinConsumed) / Float(protein!)
+        
+        if Float(dailySteps) < 10000.0 {
+            stepsProgressView.progress = Float(dailySteps) / 10000.0
+        } else {
+            stepsProgressView.progress = 1.0
+        }
+        
     }
     
     override func viewDidLoad() {
+        
+        // get steps taken today
+        getHealthKitPermission()
+        self.getStepsCount(forSpecificDate: Date()) { (steps) in
+            self.defaults.set(Int(steps), forKey: "dailySteps")
+            // self.dailySteps = Int(steps)
+        }
+        
         let dailyCalories = Int(calculateCalorieIntake())
         let dailyProtein = Int(calculateProteinIntake())
         defaults.set(dailyCalories, forKey: "Calories")
@@ -75,6 +97,7 @@ class DashboardViewController : UIViewController {
         // make progress view bigger
         caloriesProgressView.transform = caloriesProgressView.transform.scaledBy(x: 1, y: 10)
         proteinProgressView.transform = proteinProgressView.transform.scaledBy(x: 1, y: 10)
+        stepsProgressView.transform = stepsProgressView.transform.scaledBy(x: 1, y: 10)
         
         navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
@@ -173,5 +196,52 @@ class DashboardViewController : UIViewController {
             vitaminsCheckbox.setImage(UIImage(systemName: "square"), for: .normal)
         }
     }
+    
+    
+    // MARK: - Function to get daily steps
+    func getHealthKitPermission() {
+        guard HKHealthStore.isHealthDataAvailable() else {
+            return
+        }
+
+        let stepsCount = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
+
+        self.healthStore.requestAuthorization(toShare: [], read: [stepsCount]) { (success, error) in
+            if success {
+                print("Permission accept.")
+            }
+            else {
+                if error != nil {
+                    print(error ?? "")
+                }
+                print("Permission denied.")
+            }
+        }
+    }
+    
+    func getStepsCount(forSpecificDate:Date, completion: @escaping (Double) -> Void) {
+            let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
+            let (start, end) = self.getWholeDate(date: forSpecificDate)
+
+            let predicate = HKQuery.predicateForSamples(withStart: start, end: end, options: .strictStartDate)
+
+            let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
+                guard let result = result, let sum = result.sumQuantity() else {
+                    completion(0.0)
+                    return
+                }
+                completion(sum.doubleValue(for: HKUnit.count()))
+            }
+
+            self.healthStore.execute(query)
+        }
+
+        func getWholeDate(date : Date) -> (startDate:Date, endDate: Date) {
+            var startDate = date
+            var length = TimeInterval()
+            _ = Calendar.current.dateInterval(of: .day, start: &startDate, interval: &length, for: startDate)
+            let endDate:Date = startDate.addingTimeInterval(length)
+            return (startDate,endDate)
+        }
     
 }
