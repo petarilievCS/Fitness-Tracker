@@ -190,7 +190,7 @@
             <objects>
                 <viewController id="c4v-to-VcU" customClass="GoalViewController" customModule="Fitness_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3lT-jV-n3m">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yic-dm-v5D">
@@ -264,9 +264,9 @@
         <!--Settings-->
         <scene sceneID="clX-Wb-M8a">
             <objects>
-                <viewController id="a8C-9S-D1K" customClass="SettingsViewController" customModule="Fitness_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a8C-9S-D1K" customClass="SettingsViewController" customModule="Fitness_Tracker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tQX-TA-Xpf">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lsf-le-jCI">
@@ -282,7 +282,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWL-tU-Udp">
-                                <rect key="frame" x="16" y="184" width="195" height="36"/>
+                                <rect key="frame" x="16" y="184.99999999999997" width="194.66666666666666" height="35.666666666666664"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="lighterBlue"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -296,7 +296,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zlc-RA-nsQ">
-                                <rect key="frame" x="16" y="241" width="195" height="32"/>
+                                <rect key="frame" x="16" y="250.66666666666663" width="194.66666666666666" height="35.666666666666671"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="lighterBlue"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -307,6 +307,48 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="resetButtonPressed:" destination="a8C-9S-D1K" eventType="touchUpInside" id="49W-Mr-0wv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IpD-e2-YCw">
+                                <rect key="frame" x="16" y="316.33333333333331" width="194.66666666666666" height="35.666666666666657"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="lighterBlue"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="NEXT"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Set Calories">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" name="backgroundBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="setCaloriesPressed:" destination="a8C-9S-D1K" eventType="touchUpInside" id="JKd-1B-h1m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yek-Zw-HUG">
+                                <rect key="frame" x="16" y="382" width="194.66666666666666" height="35.666666666666657"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="lighterBlue"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="NEXT"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Set Protein">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" name="backgroundBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="setProteinPressed:" destination="a8C-9S-D1K" eventType="touchUpInside" id="kRc-g4-1yF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlo-M2-8TG">
+                                <rect key="frame" x="16" y="447.66666666666663" width="194.66666666666666" height="35.666666666666686"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="lighterBlue"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="NEXT"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Set Steps">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" name="backgroundBlue"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="setStepsPressed:" destination="a8C-9S-D1K" eventType="touchUpInside" id="CTm-ie-Cf3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -321,6 +363,9 @@
                     <connections>
                         <outlet property="resetInformationButton" destination="IWL-tU-Udp" id="bzW-oq-Jgs"/>
                         <outlet property="resetMealsButton" destination="Zlc-RA-nsQ" id="gGI-Cz-Sy2"/>
+                        <outlet property="setCaloriesButton" destination="IpD-e2-YCw" id="MOT-yK-JKo"/>
+                        <outlet property="setProteinButton" destination="yek-Zw-HUG" id="pcp-8K-QcD"/>
+                        <outlet property="setStepsButton" destination="xlo-M2-8TG" id="t80-jN-44G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ssU-Nv-ACV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -709,6 +754,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ocN-Vg-arL"/>
         <segue reference="thy-Eg-uKD"/>
         <segue reference="hKT-Qv-8ri"/>
         <segue reference="nsX-4Y-gqs"/>

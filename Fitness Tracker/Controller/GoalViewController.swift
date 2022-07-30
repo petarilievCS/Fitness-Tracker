@@ -36,7 +36,9 @@ class GoalViewController: UIViewController {
         defaults.set(goalPicker.selectedRow(inComponent: 0), forKey: "Goal")
         defaults.set(0, forKey: "caloriesConsumed")
         defaults.set(0, forKey: "proteinConsumed")
-        defaults.set(true, forKey: "infoEntered")
+        defaults.set(false, forKey: "infoEntered")
+        defaults.set(false, forKey: "customCalories")
+        defaults.set(false, forKey: "customProtein")
     }
 }
 

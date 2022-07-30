@@ -40,6 +40,23 @@ class DashboardViewController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        var dailyCalories : Int
+        if (defaults.bool(forKey: "customCalories")) {
+            dailyCalories = defaults.integer(forKey: "calories")
+        } else {
+            dailyCalories = Int(calculateCalorieIntake())
+        }
+        
+        var dailyProtein = Int(calculateProteinIntake())
+        if (defaults.bool(forKey: "customProtein")) {
+            dailyProtein = defaults.integer(forKey: "protein")
+        } else {
+            dailyProtein = Int(calculateProteinIntake())
+        }
+        
+        defaults.set(dailyCalories, forKey: "Calories")
+        defaults.set(dailyProtein, forKey: "Protein")
+        
         weight = defaults.integer(forKey: "Weight")
         calories = defaults.integer(forKey: "Calories")
         protein = defaults.integer(forKey: "Protein")
@@ -51,14 +68,15 @@ class DashboardViewController : UIViewController {
         calorieLabel.text = "Calories: " + String(caloriesConsumed) + " / " + String(calories!) + " kcal"
         proteinLabel.text = "Protein: " + String(proteinConsumed) + " / " + String(protein!) + " g"
         weightLabel.text = "Current weight: " + String(weight!) + " kg"
-        stepsLabel.text = "Steps: " + String(dailySteps) + " / 10000"
+        stepsLabel.text = "Steps: " + String(dailySteps) + " / " + String(defaults.integer(forKey: "steps"))
         
         // set progress view
         caloriesProgressView.progress = Float(caloriesConsumed) / Float(calories!)
         proteinProgressView.progress = Float(proteinConsumed) / Float(protein!)
         
-        if Float(dailySteps) < 10000.0 {
-            stepsProgressView.progress = Float(dailySteps) / 10000.0
+        let stepsGoal = defaults.integer(forKey: "steps")
+        if Float(dailySteps) < Float(stepsGoal) {
+            stepsProgressView.progress = Float(dailySteps) / Float(stepsGoal)
         } else {
             stepsProgressView.progress = 1.0
         }
@@ -73,11 +91,6 @@ class DashboardViewController : UIViewController {
             self.defaults.set(Int(steps), forKey: "dailySteps")
             // self.dailySteps = Int(steps)
         }
-        
-        let dailyCalories = Int(calculateCalorieIntake())
-        let dailyProtein = Int(calculateProteinIntake())
-        defaults.set(dailyCalories, forKey: "Calories")
-        defaults.set(dailyProtein, forKey: "Protein")
         
         creatineTaken = defaults.bool(forKey: "creatine")
         vitaminsTaken = defaults.bool(forKey: "vitamins")

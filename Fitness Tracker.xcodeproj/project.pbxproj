@@ -104,8 +104,8 @@
 				E69F8C16286F598B0094371C /* WelcomeViewController.swift */,
 				E69F8C2C286F86530094371C /* GoalViewController.swift */,
 				E69F8C2E286F95860094371C /* DashboardViewController.swift */,
-				E69F8C30286FAE440094371C /* DiaryViewController.swift */,
 				E69F8C32286FB0E70094371C /* SettingsViewController.swift */,
+				E69F8C30286FAE440094371C /* DiaryViewController.swift */,
 				E69F8C34286FF32F0094371C /* FoodsViewController.swift */,
 			);
 			path = Controller;
