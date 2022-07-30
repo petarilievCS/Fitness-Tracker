@@ -40,6 +40,18 @@ class DashboardViewController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        var dailyCalories : Int
+        if (defaults.bool(forKey: "customCalories")) {
+            dailyCalories = defaults.integer(forKey: "calories")
+        } else {
+            dailyCalories = Int(calculateCalorieIntake())
+        }
+        // let dailyCalories = Int(calculateCalorieIntake())
+        let dailyProtein = Int(calculateProteinIntake())
+        defaults.set(dailyCalories, forKey: "Calories")
+        defaults.set(dailyProtein, forKey: "Protein")
+        
+        
         weight = defaults.integer(forKey: "Weight")
         calories = defaults.integer(forKey: "Calories")
         protein = defaults.integer(forKey: "Protein")
@@ -73,11 +85,6 @@ class DashboardViewController : UIViewController {
             self.defaults.set(Int(steps), forKey: "dailySteps")
             // self.dailySteps = Int(steps)
         }
-        
-        let dailyCalories = Int(calculateCalorieIntake())
-        let dailyProtein = Int(calculateProteinIntake())
-        defaults.set(dailyCalories, forKey: "Calories")
-        defaults.set(dailyProtein, forKey: "Protein")
         
         creatineTaken = defaults.bool(forKey: "creatine")
         vitaminsTaken = defaults.bool(forKey: "vitamins")

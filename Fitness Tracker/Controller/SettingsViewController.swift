@@ -65,6 +65,7 @@ class SettingsViewController : UIViewController {
         let action = UIAlertAction(title: "Set", style: .default) { action in
             if calorieTextField.text != "" {
                 self.defaults.set(Int(calorieTextField.text!), forKey: "calories")
+                self.defaults.set(true, forKey: "customCalories")
             }
         }
         alert.addTextField { alertTextField in
