@@ -12,6 +12,9 @@ class SettingsViewController : UIViewController {
     
     @IBOutlet weak var resetInformationButton: UIButton!
     @IBOutlet weak var resetMealsButton: UIButton!
+    @IBOutlet weak var setCaloriesButton: UIButton!
+    @IBOutlet weak var setProteinButton: UIButton!
+    @IBOutlet weak var setStepsButton: UIButton!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let defaults = UserDefaults.standard
@@ -22,7 +25,12 @@ class SettingsViewController : UIViewController {
         navigationController?.navigationBar.isHidden = true
         resetInformationButton.layer.cornerRadius = 10.0
         resetMealsButton.layer.cornerRadius = 10.0
+        setStepsButton.layer.cornerRadius = 10.0
+        setProteinButton.layer.cornerRadius = 10.0
+        setCaloriesButton.layer.cornerRadius = 10.0
     }
+    
+    
     
     
     // reset all meals
