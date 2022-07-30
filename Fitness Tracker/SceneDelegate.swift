@@ -13,19 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let defaults = UserDefaults.standard
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-        
-        let infoEntered = defaults.bool(forKey: "infoEntered")
-        let rootViewController : UIViewController
-        if infoEntered {
-            rootViewController = storyboard.instantiateViewController(withIdentifier: "Dashboard") as UIViewController
-        } else {
-            rootViewController = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController") as UIViewController
-        }
-        navigationController.viewControllers = [rootViewController]
-        self.window?.rootViewController = navigationController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

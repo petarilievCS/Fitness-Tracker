@@ -76,4 +76,23 @@ class SettingsViewController : UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func setProteinPressed(_ sender: UIButton) {
+        var proteinTextField = UITextField()
+
+        let alert = UIAlertController(title: "Set Custom Protein", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Set", style: .default) { action in
+            if proteinTextField.text != "" {
+                self.defaults.set(Int(proteinTextField.text!), forKey: "protein")
+                self.defaults.set(true, forKey: "customProtein")
+            }
+        }
+        alert.addTextField { alertTextField in
+            alertTextField.keyboardType = .numberPad
+            proteinTextField = alertTextField
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
 }

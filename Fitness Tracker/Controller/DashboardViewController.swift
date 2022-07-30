@@ -46,11 +46,16 @@ class DashboardViewController : UIViewController {
         } else {
             dailyCalories = Int(calculateCalorieIntake())
         }
-        // let dailyCalories = Int(calculateCalorieIntake())
-        let dailyProtein = Int(calculateProteinIntake())
+        
+        var dailyProtein = Int(calculateProteinIntake())
+        if (defaults.bool(forKey: "customProtein")) {
+            dailyProtein = defaults.integer(forKey: "protein")
+        } else {
+            dailyProtein = Int(calculateProteinIntake())
+        }
+        
         defaults.set(dailyCalories, forKey: "Calories")
         defaults.set(dailyProtein, forKey: "Protein")
-        
         
         weight = defaults.integer(forKey: "Weight")
         calories = defaults.integer(forKey: "Calories")
