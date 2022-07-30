@@ -45,6 +45,7 @@ class DashboardViewController : UIViewController {
         protein = defaults.integer(forKey: "Protein")
         caloriesConsumed = defaults.integer(forKey: "caloriesConsumed")
         proteinConsumed = defaults.integer(forKey: "proteinConsumed")
+        dailySteps = defaults.integer(forKey: "dailySteps")
         
         // set labels according to user metrics
         calorieLabel.text = "Calories: " + String(caloriesConsumed) + " / " + String(calories!) + " kcal"
@@ -69,7 +70,9 @@ class DashboardViewController : UIViewController {
         // get steps taken today
         getHealthKitPermission()
         self.getStepsCount(forSpecificDate: Date()) { (steps) in
-            self.dailySteps = Int(steps) }
+            self.defaults.set(Int(steps), forKey: "dailySteps")
+            // self.dailySteps = Int(steps)
+        }
         
         let dailyCalories = Int(calculateCalorieIntake())
         let dailyProtein = Int(calculateProteinIntake())
