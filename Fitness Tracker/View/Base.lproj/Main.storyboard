@@ -190,7 +190,7 @@
             <objects>
                 <viewController id="c4v-to-VcU" customClass="GoalViewController" customModule="Fitness_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3lT-jV-n3m">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yic-dm-v5D">
@@ -570,7 +570,7 @@
             <objects>
                 <viewController id="xCY-Ey-jp0" userLabel="Diary View Controller" customClass="DiaryViewController" customModule="Fitness_Tracker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dog-6D-a2P">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHK-gm-7x4">
