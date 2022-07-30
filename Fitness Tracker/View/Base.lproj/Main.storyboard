@@ -190,7 +190,7 @@
             <objects>
                 <viewController id="c4v-to-VcU" customClass="GoalViewController" customModule="Fitness_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3lT-jV-n3m">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yic-dm-v5D">
@@ -417,6 +417,18 @@
                                     <action selector="vitaminsCheckbox:" destination="TCz-Gx-PPl" eventType="touchUpInside" id="zQt-3A-OW2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Steps: 5,000 / 10,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYs-8p-FL2">
+                                <rect key="frame" x="16" y="566" width="358" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="zmD-Ie-zyU">
+                                <rect key="frame" x="16" y="623" width="358" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="lighterBlue"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vEj-ra-Iea"/>
                         <color key="backgroundColor" name="backgroundBlue"/>
@@ -433,6 +445,8 @@
                         <outlet property="creatineCheckbox" destination="tq3-Os-JYs" id="INe-fa-KKt"/>
                         <outlet property="proteinLabel" destination="37E-i5-UlM" id="pcW-H6-oXr"/>
                         <outlet property="proteinProgressView" destination="8pj-1K-jPX" id="zfj-ir-hDV"/>
+                        <outlet property="stepsLabel" destination="BYs-8p-FL2" id="1Kg-1P-XJV"/>
+                        <outlet property="stepsProgressView" destination="zmD-Ie-zyU" id="UBa-gX-mWg"/>
                         <outlet property="vitaminsCheckbox" destination="NWu-la-zrM" id="GPa-n8-Ifv"/>
                         <outlet property="weightLabel" destination="mOY-h3-gRO" id="yZU-4T-UD6"/>
                     </connections>
@@ -556,7 +570,7 @@
             <objects>
                 <viewController id="xCY-Ey-jp0" userLabel="Diary View Controller" customClass="DiaryViewController" customModule="Fitness_Tracker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dog-6D-a2P">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHK-gm-7x4">

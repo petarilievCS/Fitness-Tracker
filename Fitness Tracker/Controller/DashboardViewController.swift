@@ -16,6 +16,8 @@ class DashboardViewController : UIViewController {
     @IBOutlet weak var proteinProgressView: UIProgressView!
     @IBOutlet weak var creatineCheckbox: UIButton!
     @IBOutlet weak var vitaminsCheckbox: UIButton!
+    @IBOutlet weak var stepsLabel: UILabel!
+    @IBOutlet weak var stepsProgressView: UIProgressView!
     
     let defaults = UserDefaults.standard
     
@@ -27,6 +29,7 @@ class DashboardViewController : UIViewController {
     var goal : Int?
     var calories : Int?
     var protein : Int?
+    var steps : Int?
     var caloriesConsumed = 0
     var proteinConsumed = 0
     
@@ -45,10 +48,12 @@ class DashboardViewController : UIViewController {
         calorieLabel.text = "Calories: " + String(caloriesConsumed) + " / " + String(calories!) + " kcal"
         proteinLabel.text = "Protein: " + String(proteinConsumed) + " / " + String(protein!) + " g"
         weightLabel.text = "Current weight: " + String(weight!) + " kg"
+        stepsLabel.text = "Steps: 5,000 / 10,000"
         
         // set progress view
         caloriesProgressView.progress = Float(caloriesConsumed) / Float(calories!)
         proteinProgressView.progress = Float(proteinConsumed) / Float(protein!)
+        stepsProgressView.progress = 0.5
     }
     
     override func viewDidLoad() {
@@ -75,6 +80,7 @@ class DashboardViewController : UIViewController {
         // make progress view bigger
         caloriesProgressView.transform = caloriesProgressView.transform.scaledBy(x: 1, y: 10)
         proteinProgressView.transform = proteinProgressView.transform.scaledBy(x: 1, y: 10)
+        stepsProgressView.transform = stepsProgressView.transform.scaledBy(x: 1, y: 10)
         
         navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
