@@ -4,4 +4,4 @@ iOS application catered towards people who are passionate about fitness. The app
 # Demo
 
 <img src="https://user-images.githubusercontent.com/90746623/181309022-33b6cdc0-93cd-4495-a64a-068fe80a988d.gif" width="296" height="640"/>
-
+![New Dashboard](https://user-images.githubusercontent.com/90746623/182955612-ab9ec67c-6faf-4a25-8cb3-abe7900c0104.PNG)
