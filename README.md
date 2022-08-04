@@ -3,6 +3,6 @@ iOS application catered towards people who are passionate about fitness. The app
 
 # Demo
 
-<img src="https://user-images.githubusercontent.com/90746623/181309022-33b6cdc0-93cd-4495-a64a-068fe80a988d.gif" width="296" height="640" padding="500"/>      <img src="https://user-images.githubusercontent.com/90746623/182955646-35ae1839-ca1e-4170-81c8-27954fe8c835.PNG" width="296" height="640"/>
+<img src="https://user-images.githubusercontent.com/90746623/181309022-33b6cdc0-93cd-4495-a64a-068fe80a988d.gif" width="296" height="640" padding-right="500"/>      <img src="https://user-images.githubusercontent.com/90746623/182955646-35ae1839-ca1e-4170-81c8-27954fe8c835.PNG" width="296" height="640"/>
 
 
