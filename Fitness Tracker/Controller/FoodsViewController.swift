@@ -64,6 +64,11 @@ class FoodsViewController : UIViewController {
 
     //MARK: - Adding Food Methods
     
+    // scan barcode and add food to table
+    @IBAction func barcodeButtonPressed(_ sender: UIButton) {
+        
+    }
+    
     // saves food item to database
     @IBAction func addButtonPressed(_ sender: UIButton) {
         
