@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6A1D6DFD2894CD8600CFAB59 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A1D6DFC2894CD8600CFAB59 /* HealthKit.framework */; };
 		6AE2AC5C288F45D400E4F617 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6AE2AC5B288F45D400E4F617 /* SwipeCellKit */; };
-		E60B2E9728AE57E7008BBA51 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60B2E9628AE57E7008BBA51 /* ScannerViewController.swift */; };
 		E61B9DFC287D14E300D97A30 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = E61B9DFB287D14E300D97A30 /* SwipeCellKit */; };
 		E69F8C13286F598B0094371C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C12286F598B0094371C /* AppDelegate.swift */; };
 		E69F8C15286F598B0094371C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69F8C14286F598B0094371C /* SceneDelegate.swift */; };
@@ -28,7 +27,6 @@
 /* Begin PBXFileReference section */
 		6A1D6DFA2894CD8600CFAB59 /* Fitness Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fitness Tracker.entitlements"; sourceTree = "<group>"; };
 		6A1D6DFC2894CD8600CFAB59 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		E60B2E9628AE57E7008BBA51 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		E69F8C0F286F598B0094371C /* Fitness Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fitness Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E69F8C12286F598B0094371C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E69F8C14286F598B0094371C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				E69F8C32286FB0E70094371C /* SettingsViewController.swift */,
 				E69F8C30286FAE440094371C /* DiaryViewController.swift */,
 				E69F8C34286FF32F0094371C /* FoodsViewController.swift */,
-				E60B2E9628AE57E7008BBA51 /* ScannerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -212,7 +209,6 @@
 				E69F8C17286F598B0094371C /* WelcomeViewController.swift in Sources */,
 				E69F8C2F286F95860094371C /* DashboardViewController.swift in Sources */,
 				E69F8C2D286F86530094371C /* GoalViewController.swift in Sources */,
-				E60B2E9728AE57E7008BBA51 /* ScannerViewController.swift in Sources */,
 				E69F8C35286FF32F0094371C /* FoodsViewController.swift in Sources */,
 				E69F8C31286FAE440094371C /* DiaryViewController.swift in Sources */,
 				E69F8C13286F598B0094371C /* AppDelegate.swift in Sources */,
