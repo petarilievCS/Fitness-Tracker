@@ -6,7 +6,6 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -191,7 +190,7 @@
             <objects>
                 <viewController id="c4v-to-VcU" customClass="GoalViewController" customModule="Fitness_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3lT-jV-n3m">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yic-dm-v5D">
@@ -623,7 +622,7 @@
             <objects>
                 <viewController id="xCY-Ey-jp0" userLabel="Diary View Controller" customClass="DiaryViewController" customModule="Fitness_Tracker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dog-6D-a2P">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JHK-gm-7x4">
@@ -760,22 +759,6 @@
             </objects>
             <point key="canvasLocation" x="5210.7692307692305" y="91.706161137440759"/>
         </scene>
-        <!--Scanner View Controller-->
-        <scene sceneID="t2f-Tp-hCg">
-            <objects>
-                <viewController id="eE8-Kx-z3k" customClass="ScannerViewController" customModule="Fitness_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nlz-eE-eMV">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="eSP-Xs-YCR"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="eDr-fx-HhX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M2j-zl-HFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7288" y="-586"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="thy-Eg-uKD"/>
@@ -802,8 +785,5 @@
         <namedColor name="signatureBlue">
             <color red="0.17647058823529413" green="0.59607843137254901" blue="0.85490196078431369" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
