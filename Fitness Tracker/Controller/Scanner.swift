@@ -15,6 +15,19 @@ class Scanner: NSObject {
     private var captureSession: AVCaptureSession?
     private var outputHandler: (_ code: String) -> Void
     
+    init(withViewController viewController: UIViewController, view: UIView,
+         codeOutputHandler: @escaping (String) -> Void) {
+        self.viewController = viewController
+        self.outputHandler = codeOutputHandler
+        super.init()
+        
+        if let captureSession = self.createCaptureSession() {
+            self.captureSession = captureSession
+            let previewLayer = self.createPreviewLayer(withCaptureSession: captureSession, view: view)
+            view.layer.addSublayer(previewLayer)
+        }
+    }
+    
     func createCaptureSession() -> AVCaptureSession? {
         
         let captureSession = AVCaptureSession()
@@ -47,7 +60,7 @@ class Scanner: NSObject {
         } catch {
             return nil
         }
-        
+        return captureSession
     }
     
     func metaObjectTypes() -> [AVMetadataObject.ObjectType] {
@@ -70,5 +83,27 @@ class Scanner: NSObject {
         previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         return previewLayer
+    }
+    
+    // Start session
+    func requestCaptureSessionStartRunning() {
+        guard let captureSession = self.captureSession else {
+            return
+        }
+        
+        if !captureSession.isRunning {
+            captureSession.startRunning()
+        }
+    }
+    
+    // Stop session
+    func requestCaptureSessionStopRunning() {
+        guard let captureSession = self.captureSession else {
+            return
+        }
+        
+        if captureSession.isRunning {
+            captureSession.stopRunning()
+        }
     }
 }
