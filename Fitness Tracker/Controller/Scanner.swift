@@ -112,7 +112,7 @@ class Scanner: NSObject {
         self.requestCaptureSessionStopRunning()
         
         if let metadataObject = metadataObjects.first {
-            guard let readableObject = metadataObjects as? AVMetadataMachineReadableCodeObject else {
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {
                 return
             }
             

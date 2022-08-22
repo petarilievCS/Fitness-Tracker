@@ -58,6 +58,7 @@ class FoodsViewController : UIViewController {
     // Print barcode
     func handleCode(code: String) {
         print(code)
+        self.scanner?.requestCaptureSessionStopRunning()
     }
 
     // remove all selected items everyday
