@@ -503,7 +503,7 @@
         <!--Item-->
         <scene sceneID="Kde-3e-KZw">
             <objects>
-                <viewController id="onX-Me-VTS" customClass="FoodsViewController" customModule="Fitness_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="onX-Me-VTS" customClass="FoodsViewController" customModule="Fitness_Tracker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ra4-XZ-dY7">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -598,6 +598,9 @@
                                 <color key="tintColor" name="backgroundBlue"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="barcode" catalog="system"/>
+                                <connections>
+                                    <action selector="scanBarcodePressed:" destination="onX-Me-VTS" eventType="touchUpInside" id="xKg-bj-I1E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MXh-tb-wtN"/>

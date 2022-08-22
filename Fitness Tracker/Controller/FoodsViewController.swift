@@ -8,13 +8,15 @@
 import UIKit
 import CoreData
 import SwipeCellKit
+import AVFoundation
 
 class FoodsViewController : UIViewController {
     
     var foodArray = [Food]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let defaults = UserDefaults.standard
-    
+    var scanner : Scanner? = nil
+   
     @IBOutlet weak var addSelectedFoodsButton: UIButton!
     @IBOutlet weak var foodTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -50,6 +52,12 @@ class FoodsViewController : UIViewController {
             foodTableView.reloadData()
         }
         
+        
+    }
+    
+    // Print barcode
+    func handleCode(code: String) {
+        print(code)
     }
 
     // remove all selected items everyday
@@ -63,6 +71,16 @@ class FoodsViewController : UIViewController {
     }
 
     //MARK: - Adding Food Methods
+    
+    @IBAction func scanBarcodePressed(_ sender: UIButton) {
+        
+        self.scanner = Scanner(withViewController: self, view: self.view, codeOutputHandler: self.handleCode)
+        
+        if let scanner = self.scanner {
+            scanner.requestCaptureSessionStartRunning()
+        }
+        
+    }
     
     // saves food item to database
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -342,6 +360,15 @@ extension FoodsViewController : UISearchBarDelegate {
     // put down keyboard when user is done searching
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+    
+}
+
+//MARK: - AV Delegate Methods
+extension FoodsViewController : AVCaptureMetadataOutputObjectsDelegate {
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        self.scanner?.scannerDelegate(output, didOutput: metadataObjects, from: connection)
     }
     
 }

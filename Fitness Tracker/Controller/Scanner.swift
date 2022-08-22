@@ -106,4 +106,22 @@ class Scanner: NSObject {
             captureSession.stopRunning()
         }
     }
+    
+    func scannerDelegate(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject],
+                         from connection: AVCaptureConnection) {
+        self.requestCaptureSessionStopRunning()
+        
+        if let metadataObject = metadataObjects.first {
+            guard let readableObject = metadataObjects as? AVMetadataMachineReadableCodeObject else {
+                return
+            }
+            
+            guard let stringValue = readableObject.stringValue else {
+                return
+            }
+            
+            self.outputHandler(stringValue)
+        }
+    }
+   
 }
