@@ -109,7 +109,9 @@ class Scanner: NSObject {
     
     func scannerDelegate(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject],
                          from connection: AVCaptureConnection) {
+        
         self.requestCaptureSessionStopRunning()
+        self.viewController.view.layer.sublayers?.remove(at: self.viewController.view.layer.sublayers!.count - 1)
         
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {

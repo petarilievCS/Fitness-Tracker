@@ -52,6 +52,7 @@ class FoodsViewController : UIViewController {
             foodTableView.reloadData()
         }
         
+        self.scanner = Scanner(withViewController: self, view: self.view, codeOutputHandler: self.handleCode)
         
     }
     
@@ -74,13 +75,9 @@ class FoodsViewController : UIViewController {
     //MARK: - Adding Food Methods
     
     @IBAction func scanBarcodePressed(_ sender: UIButton) {
-        
-        self.scanner = Scanner(withViewController: self, view: self.view, codeOutputHandler: self.handleCode)
-        
         if let scanner = self.scanner {
             scanner.requestCaptureSessionStartRunning()
         }
-        
     }
     
     // saves food item to database
@@ -373,3 +370,5 @@ extension FoodsViewController : AVCaptureMetadataOutputObjectsDelegate {
     }
     
 }
+
+
