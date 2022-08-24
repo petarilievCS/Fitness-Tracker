@@ -59,7 +59,20 @@ class FoodsViewController : UIViewController {
     // Print barcode
     func handleCode(code: String) {
         print(code)
-        self.scanner?.requestCaptureSessionStopRunning()
+        
+        // make API call for barcode
+        let URLadress = "https://api.upcdatabase.org/product/" + code + "?apikey=A4B8C3929F42564D16FB5198AAE9F551"
+        
+        if let URL = URL(string: URLadress) {
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: URL) { data, response, error in
+                if error != nil {
+                    print("Error")
+                    return
+                }
+            }
+        }
+    
     }
 
     // remove all selected items everyday
